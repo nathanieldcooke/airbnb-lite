@@ -1,32 +1,44 @@
 'use strict';
 const faker = require('faker');
 const bcrypt = require('bcryptjs');
+// const userSeeds = require('../../seedData/user');
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('Users', [
-      {
-        email: 'demo@user.io',
-        username: 'Demo-lition',
-        hashedPassword: bcrypt.hashSync('password'),
-      },
-      {
-        email: faker.internet.email(),
-        username: 'FakeUser1',
-        hashedPassword: bcrypt.hashSync(faker.internet.password()),
-      },
-      {
-        email: faker.internet.email(),
-        username: 'FakeUser2',
-        hashedPassword: bcrypt.hashSync(faker.internet.password()),
-      },
-    ], {});
+
+    let numOfUsers = 110;
+
+    const userSeeds = [];
+
+    const noDupCheck = new Set()
+
+    function generateUsers(numOfUsers) {
+      for (let i = 1; i <= numOfUsers; ++i) {
+
+        let email = `${faker.internet.userName()}@random.com`;
+        let username = faker.internet.userName();
+        let isHost = (i <= 10) ? true : false;
+
+        if (noDupCheck.has(email) || noDupCheck.has(username)) {
+          --i;
+          continue;
+        }
+
+        userSeeds.push({
+          isHost,
+          email,
+          username,
+          hashedPassword: bcrypt.hashSync('password')
+        });
+      };
+    }
+
+    generateUsers(numOfUsers)
+
+    return queryInterface.bulkInsert('Users', userSeeds, {});
   },
 
   down: (queryInterface, Sequelize) => {
-    const Op = Sequelize.Op;
-    return queryInterface.bulkDelete('Users', {
-      username: { [Op.in]: ['Demo-lition', 'FakeUser1', 'FakeUser2'] }
-    }, {});
+    return queryInterface.bulkDelete('Users', null, {});
   }
 };

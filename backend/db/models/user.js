@@ -37,6 +37,10 @@ module.exports = (sequelize, DataTypes) => {
         len: [60, 60]
       },
     },
+    isHost: {
+      type: DataTypes.BOOLEAN,
+      default: false,
+    },
   }, 
   {
     defaultScope: {
@@ -55,7 +59,10 @@ module.exports = (sequelize, DataTypes) => {
   });
   
   User.associate = function (models) {
-    // associations can be defined here
+    User.hasMany(models.Booking, { foreignKey: 'userId' })
+    User.hasMany(models.Review, { foreignKey: 'userId' })
+    User.hasMany(models.Spot, { foreignKey: 'userId' })
+    User.hasMany(models.StayedAtHistory, { foreignKey: 'userId' })
   };
 
   User.prototype.toSafeObject = function () { // remember, this cannot be an arrow function
