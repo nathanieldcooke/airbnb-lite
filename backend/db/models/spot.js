@@ -1,8 +1,8 @@
 'use strict';
 
 const booking = require("./booking");
-
 module.exports = (sequelize, DataTypes) => {
+ 
   const Spot = sequelize.define('Spot', {
     country: {
       type: DataTypes.STRING, 
@@ -70,6 +70,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     }
   }, {});
+  
   Spot.associate = function(models) {
     Spot.belongsTo(models.User, { foreignKey: 'userId' })
     Spot.hasMany(models.Booking, { foreignKey: 'spotId' })
@@ -77,5 +78,14 @@ module.exports = (sequelize, DataTypes) => {
     Spot.hasMany(models.Image, { foreignKey: 'spotId' })
     Spot.hasMany(models.StayedAtHistory, { foreignKey: 'spotId' })
   };
+
+  Spot.getAllSpots = async function() {
+    const { Review, Booking, User, Image } = require('../models')
+    // may load users/owners of spots later.
+    return await Spot.findAll({
+      include: [Review, Booking, User, Image]
+    })
+  }
+
   return Spot;
 };
