@@ -1,0 +1,26 @@
+.show-case-box {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.show-case-box > div {
+    /* background-color: pink; */
+    border: 1px solid black;
+    height: 12em;
+    width: 15em;
+    border-radius: 10px;
+}
+
+.show-case-box > span {
+    font-size: 1.5em;
+    padding: .5em;
+}
+
+.show-case-box img {
+    /* z-index: 10; */
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}

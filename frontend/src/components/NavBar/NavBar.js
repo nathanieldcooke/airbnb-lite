@@ -12,7 +12,6 @@ function NavBar (){
 
     window.onscroll = () => setWindowScroll(() => {
         if (window.pageYOffset === 0) return false;
-        console.log(window.pageYOffset)
         return true
     })
 
@@ -28,7 +27,7 @@ function NavBar (){
 
 
     return (
-        <div className='nav-bar'>
+        <div className='nav-bar' style={window.pageYOffset !== 0 ? { borderBottom: '2px solid black'} : {borderBottom: 'none'}}>
             <div className='logo-home-button'>
                 <i className="fab fa-airbnb"></i> 
                 <span className='span-airbnb' >airbnb-

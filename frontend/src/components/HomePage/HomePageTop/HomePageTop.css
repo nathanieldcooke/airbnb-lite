@@ -1,3 +1,12 @@
+@keyframes colorChange {
+    from {
+        color:blue
+    }
+    to {
+        color:skyblue
+    }
+}
+
 .home-page-top {
     /* position: relative; */
     display: flex;
@@ -17,4 +26,15 @@
     height: 80%;
     width: 90%;
     border: 5px solid black
+}
+
+.fa-chevron-circle-down {
+    font-size: 2em;
+    animation: colorChange 1s linear 0s infinite alternate;
+}
+
+.link {
+    z-index: 0;
+    position: absolute;
+    bottom: .5em;
 }
