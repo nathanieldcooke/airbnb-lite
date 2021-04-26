@@ -1,13 +1,20 @@
-import ProfileBtn from '../../../DropDowns/ProfileBtn/ProfileBtn'
+import { useState, useEffect } from 'react';
+import Location from '../../../DropDowns/SearchBar/Location/Location'
 import './FormField.css'
 
-function FormField ( { cssClassName, text1, text2 } ) {
+function FormField ( {DropDown, text1, text2 } ) {
+
+    let [display, setDisplay] = useState('hidden');
+
     return (
         <>
-            <div className={`form-field-div ` + cssClassName || '' }>
+            <div className={`form-field-div `}
+                onClick={((e) => { setDisplay('') })}
+                onMouseLeave={((e) => { setDisplay('hidden') })}
+            >
                 <span>{text1}</span>
                 <span className='span-grey-text'>{text2}</span>
-                <ProfileBtn />
+                <DropDown display={display}/>
             </div>
         </>
     )
