@@ -1,0 +1,56 @@
+.search-input {
+    border: none;
+}
+
+.search-bar-form {
+    position: absolute;
+    margin-top: 6.5em;
+    border: 3px solid black;
+    height: 3.5em;
+    width: 50em;
+    border-radius: 4em;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: white;
+}
+
+i.fa-search {
+    font-size: 1.5em;
+    color: white;
+}
+
+.search-form-button {
+    height: 3.5em;
+    width: 3.5em;
+    border-radius: 50%;
+    background-color: red;
+    border: none;
+    position: absolute;
+    right: .5em;
+}
+
+
+.quote-search-bar-span {
+    display: inline-block;
+    font-size: 2em;
+}
+
+.quote-search-bar-div {
+    padding-bottom: 1.5em;
+    width: 38em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+}

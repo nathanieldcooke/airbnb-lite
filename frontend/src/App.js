@@ -6,6 +6,7 @@ import HomePage from "./components/HomePage/HomePage";
 // import Navigation from "./components/Navigation";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
+import NavBar from "./components/NavBar/NavBar";
 
 function App() {
   const dispatch = useDispatch();
@@ -18,7 +19,7 @@ function App() {
   return (
     <>
       {/* <Navigation isLoaded={isLoaded} /> */}
-      
+      <NavBar isLoaded={isLoaded} />
       <HomePage isLoaded={isLoaded} />
       {/* {isLoaded && (
         <Switch>

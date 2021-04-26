@@ -1,0 +1,15 @@
+.form-field-div {
+    display: flex;
+    flex-direction: column;
+    border-right:  1px solid rgb(116, 116, 116);
+    width: 100%;
+    padding-left: 1.5em;
+}
+
+.form-field-last-child {
+    border-right:  none;
+}
+
+.span-grey-text {
+    color: gray
+}

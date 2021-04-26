@@ -1,7 +1,9 @@
 .home-page-top {
+    /* position: relative; */
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
+    /* top: -1em; */
     height: 100vh;
     width: 100vw;
 }
@@ -11,6 +13,7 @@
     background-position: center;
     background-repeat: none;
     background-size: cover;
+    margin-top: 6em;
     height: 80%;
     width: 90%;
     border: 5px solid black
