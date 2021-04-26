@@ -1,4 +1,5 @@
 .profile-button-icon-container {
+    /* margin-top: 1em; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -21,3 +22,22 @@
     color: rgb(92, 92, 92);
 }
 
+.profile-btn-dropdown-conntainer {
+    position: relative;
+}
+
+/* .spacer-div {
+    position: relative;
+    height: 1em;
+    width: 200%;
+} */
+
+/* .modal-overlay {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top:0;
+    left: 0;
+    background-color: red;
+    z-index: -10;
+} */
