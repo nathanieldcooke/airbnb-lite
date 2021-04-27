@@ -8,18 +8,23 @@ function ShowCaseBox ({id, title, src}) {
     const dispatch = useDispatch();
     // const spots = useSelector(state => state.spots)
     const [redirect, setRedirect] = useState(false)
+    const [link, setLink] = useState('')
 
     const handelSearchClick = (e) => {
         console.log(e.target.id)
         const spotsCollection = e.target.id
-        if (spotsCollection === '1') { dispatch(spotsActions.getSpotsThunk('top-rated')) }
-        else if (spotsCollection === '2') { dispatch(spotsActions.getSpotsThunk('bring-children')) }
-        else if (spotsCollection === '3') { dispatch(spotsActions.getSpotsThunk('bring-infants')) }
-        else if (spotsCollection === '4') { dispatch(spotsActions.getSpotsThunk('budget')) }
+        if (spotsCollection === '1') { setLink('top-rated') }
+        else if (spotsCollection === '2') { setLink('bring-children') }
+        else if (spotsCollection === '3') { setLink('bring-infants') }
+        else if (spotsCollection === '4') { setLink('budget') }
+        // if (spotsCollection === '1') { dispatch(spotsActions.getSpotsThunk('top-rated')) }
+        // else if (spotsCollection === '2') { dispatch(spotsActions.getSpotsThunk('bring-children')) }
+        // else if (spotsCollection === '3') { dispatch(spotsActions.getSpotsThunk('bring-infants')) }
+        // else if (spotsCollection === '4') { dispatch(spotsActions.getSpotsThunk('budget')) }
         setRedirect(true)
     }
 
-    if (redirect) return (<Redirect to="/spots" />)
+    if (redirect) return (<Redirect to={`/spots/${link}`} />)
 
     return (
         <div onClick={(e) => {handelSearchClick(e)}} className='show-case-box'>

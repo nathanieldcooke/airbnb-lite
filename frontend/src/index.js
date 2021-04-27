@@ -19,7 +19,8 @@ if (process.env.NODE_ENV !== 'production') { // is development
   window.sessionActions = sessionActions;
 };
 
-function Root() {
+function Root () {
+  console.log("This IS Store: ",store)
   return (
     <Provider store={store}>
       <BrowserRouter>

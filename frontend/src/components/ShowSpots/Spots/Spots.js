@@ -2,6 +2,7 @@ import Spot from './Spot/Spot'
 import './Spots.css'
 
 const Spots = ({ spotsArr }) => {
+    
     console.log('From Spots: ',spotsArr)
     return (
         <div className='spots'>

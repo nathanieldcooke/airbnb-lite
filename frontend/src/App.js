@@ -8,6 +8,7 @@ import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import NavBar from "./components/NavBar/NavBar";
 import ShowSpots from "./components/ShowSpots/ShowSpots";
+import ShowSpot from "./components/ShowSpot/ShowSpot";
 
 function App() {
   const dispatch = useDispatch();
@@ -26,9 +27,12 @@ function App() {
           <Route exact path="/">
             <HomePage isLoaded={isLoaded} />
           </Route>
-          <Route path="/spots">
+          <Route path="/spots/:link">
             <ShowSpots />
             {/* <LoginFormPage /> */}
+          </Route>
+          <Route path="/spot/:spotId">
+            <ShowSpot />
           </Route>
           <Route path="/signup">
             <SignupFormPage />
