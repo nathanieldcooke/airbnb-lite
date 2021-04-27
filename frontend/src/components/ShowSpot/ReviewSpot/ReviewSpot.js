@@ -2,7 +2,9 @@ import './ReviewSpot.css'
 
 const ReviewSpot = () => {
     return (
-        null
+        <div className='review-spot-container'>
+
+        </div>
     )
 }
 

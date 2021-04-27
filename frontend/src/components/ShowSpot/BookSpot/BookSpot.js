@@ -2,7 +2,9 @@ import './BookSpot.css'
 
 const BookSpot = () => {
     return (
-        null
+        <div className='book-spot-container' >
+
+        </div>
     )
 }
 

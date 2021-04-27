@@ -29,10 +29,10 @@ function App() {
           </Route>
           <Route path="/spots/:link">
             <ShowSpots />
-            {/* <LoginFormPage /> */}
           </Route>
           <Route path="/spot/:spotId">
             <ShowSpot />
+            {/* <LoginFormPage /> */}
           </Route>
           <Route path="/signup">
             <SignupFormPage />

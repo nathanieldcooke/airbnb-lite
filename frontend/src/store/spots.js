@@ -11,6 +11,8 @@ const getSpots = (spots) => {
     };
 };
 
+
+
 //////////////// THUNK ACTION CREATORS ////////////////////
 
 export const getSpotsThunk = (order) => async (dispatch) => {

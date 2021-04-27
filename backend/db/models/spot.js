@@ -84,6 +84,14 @@ module.exports = (sequelize, DataTypes) => {
     Spot.hasMany(models.StayedAtHistory, { foreignKey: 'spotId' })
   };
 
+  Spot.findSpot = async function(id) {
+    const { Review, Booking, User, Image } = require('../models')
+    // id = Number(id)
+    return await Spot.findByPk(id, {
+      include: [Review, Booking, User, Image]
+    })
+  }
+
   Spot.getAllSpots = async function() {
     const { Review, Booking, User, Image } = require('../models')
     // may load users/owners of spots later.
