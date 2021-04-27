@@ -1,0 +1,10 @@
+.spots {
+    overflow: scroll;
+    /* background-color: burlywood; */
+    height: 100%;
+    width: 50%;
+}
+
+.spots-nav-space-holder {
+    height: 6em;
+}
