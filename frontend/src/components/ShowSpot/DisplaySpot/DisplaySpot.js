@@ -13,13 +13,17 @@ const DisplaySpot = ( {spot} ) => {
     let country = spot.country
     let mainImg = spot.Images?.find(img => img.main === true).src
     let newImgArr = [];
+    let userName = spot.User?.username
     if (spot?.Images)
     for (let i = 0; i < 4; i++) {
         newImgArr.push(spot.Images[i].src)
     }
-    console.log(newImgArr)
+    let maxGuests = spot.maxGuests
+    let bathrooms = spot.bathrooms
+    let bedrooms = spot.bedrooms
+    let beds = spot.beds
+    let profileImg = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'
 
-    // console.log(mainImg)
 
 
     return (
@@ -42,10 +46,13 @@ const DisplaySpot = ( {spot} ) => {
                     </div>
                 </div>
                 <div className='display-spot-info'>
-                    <div className='display-left-info'></div>
-                    <div className='display-right-info'></div>
+                    <div className='display-left-info'>
+                        <span className='span1'>Hosted by {userName}</span>
+                        <span className='span2'>{maxGuests} guests - {bedrooms} bedroom - {beds} bed - {bathrooms} bath</span>
+                    </div>
+                    <div className='display-right-info'><img src={profileImg}></img></div>
                 </div>
-                <div className='book-button'><button></button></div>
+                <div className='book-button'><button>Book</button></div>
             </div>
         </div>
     )

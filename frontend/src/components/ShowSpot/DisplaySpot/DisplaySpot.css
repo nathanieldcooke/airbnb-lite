@@ -56,7 +56,7 @@
 
 .display-images-box {
     display: flex;
-
+    margin-bottom: 1.5em;
     /* border: 1px solid black; */
     height: 35em;
     width: 70em;
@@ -131,4 +131,33 @@
 .display-images-box-sub > .img4 > img {
     border-bottom-right-radius: 1em;
 }
+
+.display-spot-info {
+    display: flex;
+    width: 35em;
+    justify-content: space-between;
+}
+
+.display-left-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.display-right-info, .display-right-info > img {
+    height: 4em;
+    width: 4em;
+    border-radius: 50%;
+    /* background: blue; */
+}
+
+.display-left-info > .span1 {
+    font-size: 1.5em;
+    padding-bottom: .5em;
+}
+
+.display-left-info > .span2 {
+    font-size: 1.1em;
+    color: rgb(72, 72, 72);
+}
+
 
