@@ -1,0 +1,43 @@
+.profile-button-icon-container {
+    /* margin-top: 1em; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    padding: 0.25em .4em;
+    border-radius: 1.25em;
+}
+
+.fa-bars {
+    /* padding: 0 .25em; */
+    font-size: 1em;
+    padding-right: 1em;
+    padding-left: .5em;
+    color: rgb(60, 60, 60);
+}
+
+.fa-user-circle {
+    /* padding: 0 .25em; */
+    font-size: 2em;
+    color: rgb(92, 92, 92);
+}
+
+.profile-btn-dropdown-conntainer {
+    position: relative;
+}
+
+/* .spacer-div {
+    position: relative;
+    height: 1em;
+    width: 200%;
+} */
+
+/* .modal-overlay {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top:0;
+    left: 0;
+    background-color: red;
+    z-index: -10;
+} */

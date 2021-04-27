@@ -61,6 +61,8 @@ export const logout = () => async (dispatch) => {
     return response;
 };
 
+///////////////// Reducer //////////////////
+
 const initialState = { user: null };
 
 const sessionReducer = (state = initialState, action) => {

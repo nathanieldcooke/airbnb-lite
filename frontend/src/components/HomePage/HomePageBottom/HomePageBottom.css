@@ -1,0 +1,15 @@
+.home-page-bottom {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    /* background-color: blue; */
+    height: 100vh;
+    width: 100vw;
+}
+
+.sub-home-page-bottom {
+    margin-top: 5%;
+    width: 90%;
+    height: 90%;
+    /* border: 2px solid black; */
+}

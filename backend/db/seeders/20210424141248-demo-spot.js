@@ -60,12 +60,13 @@ module.exports = {
         let summary = faker.lorem.paragraph(getRandNumBetween(3, 15));
         let userId = getUserId(i);
         let minimumStay = getRandNumBetween(1, 4);
+        let price = getRandNumBetween(30, 375);
 
         spotSeeds.push({
           state, city, streetAddress, zipcode, 
           country, childrenAllowed, infantsAllowed,
           maxGuests, bedrooms, beds, bathrooms,
-          title, summary, userId, minimumStay
+          title, summary, userId, minimumStay, price
         })
       }
     }

@@ -1,5 +1,6 @@
 'use strict';
-
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op
 const booking = require("./booking");
 module.exports = (sequelize, DataTypes) => {
  
@@ -68,6 +69,10 @@ module.exports = (sequelize, DataTypes) => {
     minimumStay: {
       type: DataTypes.INTEGER, 
       allowNull: false,
+    },
+    price: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
     }
   }, {});
   
@@ -83,6 +88,48 @@ module.exports = (sequelize, DataTypes) => {
     const { Review, Booking, User, Image } = require('../models')
     // may load users/owners of spots later.
     return await Spot.findAll({
+      include: [Review, Booking, User, Image]
+    })
+  }
+
+  Spot.orderByTop = async function () {
+    const { Review, Booking, User, Image } = require('../models')
+    // may load users/owners of spots later.
+    return await Spot.findAll({
+      order: [['rating', 'DESC']],
+      include: [Review, Booking, User, Image]
+    })
+  }
+
+  Spot.orderByBudget = async function () {
+    const { Review, Booking, User, Image } = require('../models')
+    // may load users/owners of spots later.
+    return await Spot.findAll({
+      order: [['price', 'ASC']],
+      include: [Review, Booking, User, Image]
+    })
+  }
+
+  Spot.getChildFriendly = async function () {
+    const { Review, Booking, User, Image } = require('../models')
+    return await Spot.findAll({
+      where: {
+        childrenAllowed: {
+          [Op.eq]: true
+        }
+      },
+      include: [Review, Booking, User, Image]
+    })
+  }
+
+  Spot.getInfantsFriendly = async function () {
+    const { Review, Booking, User, Image } = require('../models')
+    return await Spot.findAll({
+      where: {
+        infantsAllowed: {
+          [Op.eq]: true
+        }
+      },
       include: [Review, Booking, User, Image]
     })
   }
