@@ -3,7 +3,6 @@ import './Spots.css'
 
 const Spots = ({ spotsArr }) => {
     
-    console.log('From Spots: ',spotsArr)
     return (
         <div className='spots'>
             <div className='spots-nav-space-holder'></div>

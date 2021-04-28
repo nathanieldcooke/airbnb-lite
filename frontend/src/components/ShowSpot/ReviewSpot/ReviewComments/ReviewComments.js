@@ -9,7 +9,6 @@ const ReviewComments = ( { review } ) => {
 
     if (!review) return <div className='review-placeholder'></div>
 
-    console.log(review)
 
     return (
         <div className='review-comment'>

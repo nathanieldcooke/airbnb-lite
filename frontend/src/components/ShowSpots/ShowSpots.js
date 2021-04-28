@@ -10,9 +10,7 @@ import './ShowSpots.css'
 const ShowSpots = () => {
     const dispatch = useDispatch();
     const spotsArr = useSelector(state => state.spots)
-    console.log(spotsArr)
     const link = useParams().link
-    console.log(link)
     
     useEffect(() => {
         if (link === 'top-rated') { dispatch(spotsActions.getSpotsThunk('top-rated')) }

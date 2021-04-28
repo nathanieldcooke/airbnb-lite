@@ -16,7 +16,6 @@ const ShowSpot = () => {
     useEffect( async () => {
         dispatch(spotsActions.getSpotThunk(spotId));
     }, [dispatch])
-    console.log(spot)
     return (
         <div className='show-spot-container'>
             <DisplaySpot/>
