@@ -7,6 +7,12 @@ const ReviewSpot = () => {
 
     const spot = useSelector(state => state.spot)
 
+    const reviews = spot.Reviews?.map(review => <ReviewComments review={review} />)
+    while (reviews?.length < 6) {
+        reviews.push(<ReviewComments review={null}/>);
+    }
+
+
     return (
         <div className='review-spot-container'>
             <div className='review-navbar-space-holder'></div>
@@ -25,15 +31,17 @@ const ReviewSpot = () => {
                     </div>
                 </div>
                 <div className='review-comments'>
+                    {reviews}
+                    {/* <ReviewComments review={review} />
                     <ReviewComments />
                     <ReviewComments />
                     <ReviewComments />
                     <ReviewComments />
-                    <ReviewComments />
-                    <ReviewComments />
-
+                    <ReviewComments /> */}
                 </div>
-                <button>Book Now</button>
+                <div className='review-book-now-btn'>
+                    <button>Book Now</button>
+                </div>
             </div>
         </div>
     )

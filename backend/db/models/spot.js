@@ -88,7 +88,22 @@ module.exports = (sequelize, DataTypes) => {
     const { Review, Booking, User, Image } = require('../models')
     // id = Number(id)
     return await Spot.findByPk(id, {
-      include: [Review, Booking, User, Image]
+      // include: [Review, Booking, User, Image]
+      include: [
+        {
+          model: Review,
+          include: User
+        },
+        {
+          model: Booking
+        },
+        {
+          model: User
+        },
+        {
+          model: Image
+        }
+      ]
     })
   }
 
@@ -105,7 +120,7 @@ module.exports = (sequelize, DataTypes) => {
     // may load users/owners of spots later.
     return await Spot.findAll({
       order: [['rating', 'DESC']],
-      include: [Review, Booking, User, Image]
+      include: [Review, Booking, User, Image],
     })
   }
 
