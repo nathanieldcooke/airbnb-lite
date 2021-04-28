@@ -9,7 +9,6 @@ import ReviewSpot from './ReviewSpot/ReviewSpot'
 
 
 const ShowSpot = () => {
-    // const dispatch = useDispatch();
     const spotId = useParams().spotId
     let [spot, setSpot] = useState([])
     useEffect( async () => {
@@ -21,9 +20,8 @@ const ShowSpot = () => {
     return (
         <div className='show-spot-container'>
             <DisplaySpot spot={spot}/>
-            <BookSpot/>
             <ReviewSpot/>
-            <div>{spot.id} hello</div>
+            {/* <BookSpot/> */}
         </div>
     )
 };

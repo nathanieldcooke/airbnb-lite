@@ -11,13 +11,19 @@ const DisplaySpot = ( {spot} ) => {
     let city = spot.city
     let state = spot.state
     let country = spot.country
-    let mainImg = spot.Images?.find(img => img.main === true).src
-    let newImgArr = [];
+    // let mainImg = spot.Images?.find(img => img.main === true).src
+    let mainImg = 'https://a0.muscache.com/im/pictures/40104227/bdec5982_original.jpg?im_w=1200'
+    let newImgArr = [
+        'https://a0.muscache.com/im/pictures/71865830/a6c27ff6_original.jpg?im_w=720',
+        'https://a0.muscache.com/im/pictures/40681771/9afae12b_original.jpg?im_w=720',
+        'https://a0.muscache.com/im/pictures/71875065/119f0cf6_original.jpg?im_w=720',
+        'https://a0.muscache.com/im/pictures/71875109/cb9ba477_original.jpg?im_w=720'
+    ];
     let userName = spot.User?.username
-    if (spot?.Images)
-    for (let i = 0; i < 4; i++) {
-        newImgArr.push(spot.Images[i].src)
-    }
+    // if (spot?.Images)
+    // for (let i = 0; i < 4; i++) {
+    //     newImgArr.push(spot.Images[i].src)
+    // }
     let maxGuests = spot.maxGuests
     let bathrooms = spot.bathrooms
     let bedrooms = spot.bedrooms
@@ -46,13 +52,19 @@ const DisplaySpot = ( {spot} ) => {
                     </div>
                 </div>
                 <div className='display-spot-info'>
-                    <div className='display-left-info'>
-                        <span className='span1'>Hosted by {userName}</span>
-                        <span className='span2'>{maxGuests} guests - {bedrooms} bedroom - {beds} bed - {bathrooms} bath</span>
-                    </div>
+                    <div className='profile-info'>
+                        <div className='display-left-info'>
+                            <span className='span1'>Hosted by {userName}</span>
+                            <span className='span2'>{maxGuests} guests - {bedrooms} bedroom - {beds} bed - {bathrooms} bath</span>
+                        </div>
                     <div className='display-right-info'><img src={profileImg}></img></div>
+                    </div>
+                    <div className='display-buttons'>
+                        <div className='book-button'><button>Book Now</button></div>
+                        <div className='more-img-button'><button>More Images</button></div>
+                    </div>
                 </div>
-                <div className='book-button'><button>Book</button></div>
+                <div className='display-review-button'><button>See Reviews Below</button></div>
             </div>
         </div>
     )

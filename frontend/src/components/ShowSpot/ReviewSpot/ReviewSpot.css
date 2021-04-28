@@ -1,5 +1,21 @@
 .review-spot-container {
     height: 100vh;
     width: 100vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     background-color: yellow;
+}
+
+.review-navbar-space-holder {
+    height: 6em;
+    width: 100%;
+    /* background-color: blue; */
+}
+
+.sub-review-spot-container {
+    border: 2px solid black;
+    height: 100%;
+    width: 70em;
 }
