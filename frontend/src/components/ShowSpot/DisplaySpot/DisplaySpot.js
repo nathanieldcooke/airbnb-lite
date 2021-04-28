@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux'
+import BookingFormModal from '../../BookingFormModal/BookingFormModal'
 import './DisplaySpot.css'
 
 const DisplaySpot = () => {
@@ -61,7 +62,7 @@ const DisplaySpot = () => {
                     <div className='display-right-info'><img src={profileImg}></img></div>
                     </div>
                     <div className='display-buttons'>
-                        <div className='book-button'><button>Book Now</button></div>
+                        <div className='book-button'><button><BookingFormModal /></button></div>
                         <div className='more-img-button'><button>More Images</button></div>
                     </div>
                 </div>
