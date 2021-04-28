@@ -20,7 +20,7 @@ function ProfileButton () {
 
     return (
         <div className='profile-btn-dropdown-conntainer'
-        onClick={((e) => {setDisplay('')})}
+        onClick={((e) => { display === '' ? setDisplay('hidden') : setDisplay('')})}
         onMouseLeave={((e) => { setDisplay('hidden') })}
         >
             <div className='profile-button-icon-container'>

@@ -9,7 +9,10 @@ function SignupFormModal() {
         <>
             <span onClick={() => setShowModal(true)}>SignUp</span>
             {showModal && (
-                <Modal onClose={() => setShowModal(false)}>
+                <Modal onClose={(e) => {
+                    e.stopPropagation()
+                    setShowModal(false)}
+                }>
                     <SignupForm />
                 </Modal>
             )}

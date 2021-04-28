@@ -9,7 +9,10 @@ function LoginFormModal() {
         <>
             <span onClick={() => setShowModal(true)}>Log In</span>
             {showModal && (
-                <Modal onClose={() => setShowModal(false)}>
+                <Modal onClose={(e) => {
+                    e.stopPropagation()
+                    setShowModal(false)
+                }}>
                     <LoginForm />
                 </Modal>
             )}
