@@ -1,8 +1,9 @@
+import { useSelector, useDispatch } from 'react-redux'
 import './DisplaySpot.css'
 
-const DisplaySpot = ( {spot} ) => {
+const DisplaySpot = () => {
 
-    console.log(spot)
+    const spot = useSelector(state => state.spot)
 
     let title = spot.title
     let rating = spot.rating

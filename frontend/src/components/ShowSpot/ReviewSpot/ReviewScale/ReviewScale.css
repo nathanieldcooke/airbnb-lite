@@ -1,0 +1,29 @@
+.value-scale {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    /* width: 35em; */
+}
+
+.fluid {
+    width: 3.5em;
+    height: .35em;
+    background-color: black;
+}
+
+.glass {
+    background-color: rgb(126, 126, 126);
+    margin-right: 1em;
+    width: 7.5em;
+    height: .35em;
+}
+
+.review-scale {
+    display: flex;
+    justify-content: space-between;
+    width: 32em;
+}
+
+.review-scale > span {
+    font-size: 1.25em;
+}

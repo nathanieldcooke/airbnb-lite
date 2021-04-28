@@ -5,7 +5,7 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    background-color: yellow;
+    /* background-color: yellow; */
 }
 
 .review-navbar-space-holder {
@@ -15,7 +15,42 @@
 }
 
 .sub-review-spot-container {
-    border: 2px solid black;
+    /* border: 2px solid black; */
     height: 100%;
     width: 70em;
+}
+
+.review-spot-review-star {
+    padding-top: 2em;
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
+.review-spot-review-star i{
+    color: red;
+}
+
+.reveiw-spot-six-fields {
+    display: flex;
+    justify-content: space-between;
+    /* padding: 1em; */
+    margin-top: 2em;
+}
+
+.review-spot-left, .review-spot-right {
+    height: 6em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.review-comments {
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-evenly; */
+    /* align-items: flex-start; */
+    margin-top: 2em;
+    /* border: 2px solid black; */
+    width: 70.5em;
+    height: 35em;
 }

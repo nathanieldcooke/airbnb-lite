@@ -21,6 +21,7 @@ export const getSpotsThunk = (order) => async (dispatch) => {
     dispatch(getSpots(spots));
 }
 
+
 ///////////////// Reducer //////////////////
 
 const initialState = []
