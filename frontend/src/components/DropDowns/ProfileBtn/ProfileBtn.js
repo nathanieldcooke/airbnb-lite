@@ -14,10 +14,13 @@ function ProfileBtn ( { display } ) {
                     <span>SignUp</span>
                 </div>            
                 <div>
-                    <span>Demo User</span>
+                    <span>Demo Login</span>
                 </div>           
                 <div>
                     <span>Demo SignUp</span>
+                </div>
+                <div>
+                    <span>Demo Host SignUp</span>
                 </div>
             </div>
         </>

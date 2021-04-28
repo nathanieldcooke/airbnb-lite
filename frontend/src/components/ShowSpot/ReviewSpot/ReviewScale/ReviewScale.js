@@ -1,12 +1,12 @@
 import { useSelector } from 'react-redux'
 import './ReviewScale.css'
 
-const ReviewScale = ({text, objKey}) => {
+const ReviewScale = ({text, objkey}) => {
 
     const spot = useSelector(state => state.spot)
 
     let categoryRating = (spot.Reviews?.reduce((acc, revObj) => {
-        return revObj[objKey] + acc;
+        return revObj[objkey] + acc;
     }, 0) / spot.Reviews?.length).toFixed(2)
 
     return (
