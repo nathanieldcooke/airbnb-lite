@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {useState} from 'react';
 import './LoggedOut.css'
 import LoginFormModal from '../../../LoginFormModal/LoginFormModal';
+import SignupFormModal from '../../../SignupFormModal/SignupFormModal';
 
 
 const LoggedOut = ( { display } ) => {
@@ -20,7 +21,7 @@ const LoggedOut = ( { display } ) => {
                     <span><LoginFormModal/></span>
                 </div>
                 <div>
-                    <span>SignUp</span>
+                    <span><SignupFormModal/></span>
                 </div>
                 <div>
                     <span>Demo Login</span>
