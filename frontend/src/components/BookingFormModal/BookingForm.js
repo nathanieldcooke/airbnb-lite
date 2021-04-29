@@ -1,10 +1,74 @@
 import {useState, useEffect} from 'react';
+import { useSelector, useDispatch, connectAdvanced } from 'react-redux'
 import Calendar from 'react-calendar';
 import './BookingForm.css'
 
 
+
 const BookingForm = () => {
 
+    const monthToNum = {
+        Jan: 1,
+        Feb: 2, 
+        Mar: 3, 
+        Apr: 4,
+        May: 5,
+        Jun: 6,
+        Jul: 7,
+        Aug: 8,
+        Sep: 9,
+        Oct: 10,
+        Nov: 11,
+        Dec: 12
+    }
+
+    const spot = useSelector(state => state.spot)
+
+    var getDaysArray = function (start, end) {
+        for (var arr = [], dt = new Date(start); dt <= end; dt.setDate(dt.getDate() + 1)) {
+            arr.push(new Date(dt));
+        }
+        return arr;
+    };
+
+    const allBookedDayArray = (start, end) => {
+        console.log(start)
+        console.log(end)
+        console.log('-[[[[[[[[[[[[[[[[')
+        var daylist = getDaysArray(new Date(start), new Date(end));
+        daylist.map((v) => v.toISOString().slice(0, 10)).join("")
+        return daylist
+
+    }
+
+    const convertSQLDate = (date) => {
+        date = date.toString().split('T')[0].split('-').splice(1, 3).map(numS => Number(numS))
+        return date
+    }
+
+    const convertCalenderDate = (date) => {
+        // console.log(date.toString().split(' ').splice(1,2))
+        date = date.toString().split(' ').splice(1, 2)
+        date[0] = monthToNum[date[0]]
+        date[1] = Number(date[1])
+        // console.log("val" ,date.join(' '))
+        return date.join(' ')
+    }
+    const spotBookings = spot.Bookings.map(booking => {
+        return allBookedDayArray(...[convertSQLDate(booking.checkIn), convertSQLDate(booking.checkOut)]) 
+    })
+    .map(bookingArr => bookingArr
+    .map(booking => convertCalenderDate(booking)))
+    .reduce((acc, subArr) => {
+        acc.push(...subArr)
+        return acc
+    }, [])
+    // .map(booking => convertCalenderDate(booking))
+    
+
+
+    console.log(spotBookings)
+    console.log(spot)
     const [dateIn, setDateIn] = useState(new Date());
     const [dateOut, setDateOut] = useState(new Date());
     const [date, setDate] = useState(new Date())
@@ -22,11 +86,19 @@ const BookingForm = () => {
 
 
     const tileClassName = ( dateIn ) => { 
-        let sDate = date.toString().split(' ').splice(0, 3).join()
-        let sDateIn = dateIn.date.toString().split(' ').splice(0, 3).join()
-        console.log(sDate === sDateIn)
-        return sDateIn === sDate ? 'red' : null;
+        // let sDate = date.toString().split(' ').splice(0, 3).join()
+        // let sDateIn = dateIn.date.toString().split(' ').splice(0, 3).join()
+        // // console.log(sDate === sDateIn)
+        // return sDateIn === sDate ? 'red' : null;
     }
+
+    const tileDisabled = ({ activeStartDate, date, view }) => {
+        // console.log(date)
+        // console.log('String: ', convertCalenderDate(date))
+        return spotBookings.includes(convertCalenderDate(date))
+    }
+
+
     // useEffect(() => {
 
     // }, []);
@@ -41,6 +113,7 @@ const BookingForm = () => {
                     value={dateIn}
                     className='react-calender'
                     tileClassName={tileClassName}
+                    tileDisabled={tileDisabled}
                 />
                 <div className='book-buttons'>
                     <button disabled={true} className='back-step'>back</button>
