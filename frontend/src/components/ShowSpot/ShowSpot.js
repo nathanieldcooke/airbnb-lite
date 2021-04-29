@@ -5,7 +5,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import * as spotsActions from '../../store/spot'
 import './ShowSpot.css'
 import DisplaySpot from './DisplaySpot/DisplaySpot'
-import BookSpot from './BookSpot/BookSpot'
+// import BookSpot from './BookSpot/BookSpot'
 import ReviewSpot from './ReviewSpot/ReviewSpot'
 
 

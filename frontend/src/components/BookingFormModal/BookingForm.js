@@ -1,72 +1,108 @@
 import {useState, useEffect} from 'react';
+import Calendar from 'react-calendar';
 import './BookingForm.css'
 
 
 const BookingForm = () => {
 
-    let d = new Date();
+    const [dateIn, setDateIn] = useState(new Date());
+    const [dateOut, setDateOut] = useState(new Date());
+    const [date, setDate] = useState(new Date())
 
-    const [month, setMonth] = useState(d.getMonth());
-    const [year, setYear] = useState(d.getFullYear());
-    const [calender, setCalender] = useState(null);
+    const [page, setPage] = useState(1);
+    const setDateCheckIn = date => {
+        // console.log(date)
+        setDateIn(date)
+    }
+    const setDateCheckOut = date => {
+        // console.log(date)
+        setDateOut(date)
+    } 
 
-    
-    
-    useEffect(() => {
-        
-        function getDay(date) { // get day number from 0 (monday) to 6 (sunday)
-            let day = date.getDay();
-            if (day == 0) day = 7;
-            return day - 1;
-        }
-        
-        let d = new Date(month, year)
-        
 
-        let table = '<table><tr><th>MO</th><th>TU</th><th>WE</th><th>TH</th><th>FR</th><th>SA</th><th>SU</th></tr><tr></table>';
-        
-        //spaces until first day
-        for (let i = 0; i < getDay(d); i++) {
-            table += '<td><td>';
-        }
-        
-        //add actual dates
-        while (d.getMonth() == month) {
-            table += '<td>' + d.getDate() + '</td>';
-            
-            if (getDay(d) % 7 === 6) { // sunday, last day of week - newline
-                table += '</tr><tr>';
-            }
-            
-            d.setDate(d.getDate() + 1);
-        }
-        
-        // spaces until end of month
-        if (getDay(d) !== 0) {
-            for (let i = getDay(d); i < 7; i++) {
-                table += '</td></td>'
-            }
-        }
-        
-        table += '</tr></table>';
 
-        setCalender(<div></div>)
-        // setCalender(document.createElement('div'))
-        
-    }, [month, year]);
-    
-    
-    console.log(calender, month, year)
-    
-    // let span = <span>HELOOOOOOOOOOOOOO</span>
-    
+    const tileClassName = ( dateIn ) => { 
+        let sDate = date.toString().split(' ').splice(0, 3).join()
+        let sDateIn = dateIn.date.toString().split(' ').splice(0, 3).join()
+        console.log(sDate === sDateIn)
+        return sDateIn === sDate ? 'red' : null;
+    }
+    // useEffect(() => {
 
-    
-    return (
-        <div className='booking-form'>
-            
-        </div>
-    )
+    // }, []);
+    if (page === 1) {
+        return (
+            <div className='booking-form'>
+                <div className='book-title'>
+                    <span>Please Choose A Check-In Date:</span>
+                </div>
+                <Calendar
+                    onChange={setDateCheckIn}
+                    value={dateIn}
+                    className='react-calender'
+                    tileClassName={tileClassName}
+                />
+                <div className='book-buttons'>
+                    <button disabled={true} className='back-step'>back</button>
+                    <button 
+                        className='next-step'
+                        onClick={() => {setPage(2)}}
+                    >Next</button>
+                </div>
+            </div>
+        )
+    } else if (page === 2) {
+        return (
+            <div className='booking-form'>
+                <div className='book-title'>
+                    <span>Please Choose A Check-Out Date:</span>
+                </div>
+                <Calendar
+                    onChange={setDateCheckOut}
+                    value={dateOut}
+                    className='react-calender'
+                />
+                <div className='book-buttons'>
+                    <button 
+                        className='back-step'
+                        onClick={() => { setPage(1) }}
+                    >back</button>
+                    <button 
+                        className='next-step'
+                        onClick={() => { setPage(3) }}
+                    >Next</button>
+                </div>
+            </div>
+        )
+    } else if (page === 3 ) {
+        return (
+            <div className='booking-form'>
+                <div className='book-title'>
+                    <span>Please Click Confirm:</span>
+                </div>
+                <div className='step-3-text'>
+                    <span>Your Booked a Stay at:</span>
+                    <span>Place I'm Staing</span>
+                    <span>For CheckIn at: </span>
+                    <span>TIME</span>
+                    <span>For CheckOut at:</span>
+                    <span>Amounting to:</span>
+                    <span>Total Cost</span>
+                    <span>Click Confirm to Charge Account</span>
+                </div>
+                <div className='book-buttons'>
+                    <button
+                        className='back-step'
+                        onClick={() => { setPage(2) }}
+                    >back</button>
+                    <button
+                        className='next-step'
+                        // onClick={() => { setPage(3) }}
+                    >Confirm</button>
+                </div>
+            </div>
+        )
+    }
 };
 
 export default BookingForm;

@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/nathanieldcooke/auth-me/issues"
   },
-  "homepage": "https://github.com/nathanieldcooke/auth-me#readme"
+  "homepage": "https://github.com/nathanieldcooke/auth-me#readme",
+  "dependencies": {
+    "react-calendar": "^3.4.0"
+  }
 }
