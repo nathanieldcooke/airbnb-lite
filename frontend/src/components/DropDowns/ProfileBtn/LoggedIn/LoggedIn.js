@@ -1,6 +1,7 @@
 import * as sessionActions from '../../../../store/session'
 import { useDispatch, useSelector } from 'react-redux';
 import './LoggedIn.css'
+import HistoryFormModal from '../../../HistoryFormModal/HistoryFormModal';
 
 
 const LoggedIn = ( { display } ) => {
@@ -19,7 +20,7 @@ const LoggedIn = ( { display } ) => {
                     <span>Logout</span>
                 </div>
                 <div>
-                    <span>History</span>
+                    <HistoryFormModal />
                 </div>
             </div>
         </>
