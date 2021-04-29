@@ -2,12 +2,15 @@ const router = require('express').Router();
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
 const spotsRouter = require('./spots.js');
+const bookingsRouter = require('./bookings.js')
 
 router.use('/session', sessionRouter); // /api/session
 
 router.use('/users', usersRouter); // /api/users
 
 router.use('/spots', spotsRouter);
+
+router.use('/bookings', bookingsRouter);
 
 router.post('/test', function(req,res) {  // /api/test
     res.json({ requestBody: req.body });

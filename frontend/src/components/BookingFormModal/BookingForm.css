@@ -82,9 +82,9 @@
   font-size: 0.75em;
   padding: calc(0.75em / 0.75) calc(0.5em / 0.75);
 }
-.react-calendar__month-view__days__day--weekend {
+/* .react-calendar__month-view__days__day--weekend {
   color: #d10000;
-}
+} */
 .react-calendar__month-view__days__day--neighboringMonth {
   color: #757575;
 }
@@ -107,7 +107,7 @@
   background-color: #e6e6e6;
 }
 .react-calendar__tile--now {
-  background: #ffff76;
+  /* background: #ffff76; */
 }
 .react-calendar__tile--now:enabled:hover,
 .react-calendar__tile--now:enabled:focus {
@@ -121,12 +121,14 @@
   background: #a9d4ff;
 }
 .react-calendar__tile--active {
-  background: #006edc;
+  /* background: #006edc;  */
+  background-color: rgba(26, 175, 26, .25);
   color: white;
 }
 .react-calendar__tile--active:enabled:hover,
 .react-calendar__tile--active:enabled:focus {
-  background: #1087ff;
+  background-color: rgba(26, 175, 26, .25);
+  /* background: #1087ff; */
 }
 .react-calendar--selectRange .react-calendar__tile--hover {
   background-color: #e6e6e6;
@@ -172,4 +174,38 @@
 
 .red {
     background-color: red
+}
+
+.react-calender  button.green {
+  background-color: rgba(26, 175, 26, .25);
+    /* background-color: green; */
+}
+
+.errors {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: red;
+    font-size: 1.5em;
+}
+
+.booking-success {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.booking-success > .success {
+    font-size: 2.5em;
+    color: rgb(95, 159, 0);
+    font-weight: bold;
+}
+
+.booking-success > .visit {
+    font-size: 1.25em;
 }

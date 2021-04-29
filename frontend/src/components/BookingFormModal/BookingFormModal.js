@@ -13,7 +13,7 @@ function BookingFormModal() {
                     e.stopPropagation()
                     setShowModal(false)
                 }}>
-                    <BookingForm />
+                    <BookingForm setShowModal={setShowModal} />
                 </Modal>
             )}
         </>
