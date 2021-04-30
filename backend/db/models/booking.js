@@ -1,4 +1,6 @@
 'use strict';
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op
 module.exports = (sequelize, DataTypes) => {
   const Booking = sequelize.define('Booking', {
     checkIn: {
@@ -32,11 +34,24 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Booking.associate = function(models) {
     Booking.belongsTo(models.User, { foreignKey: 'userId' })
-    Booking.belongsTo(models.User, { foreignKey: 'spotId' })
+    Booking.belongsTo(models.Spot, { foreignKey: 'spotId' })
   };
 
+  Booking.getBookings = async function(userId) {
+    const { Spot } = require('../models')
+    const bookings = await Booking.findAll({
+      where: {
+        userId: {
+          [Op.eq]: userId
+        }
+      },
+      include: [Spot]
+    });
+    return bookings;
+  }
+
   Booking.addBooking = async function(bookingData) {
-    await Booking.create(bookingData)
+    await Booking.create(bookingData);
   }
   return Booking;
 };
