@@ -51,7 +51,23 @@ module.exports = (sequelize, DataTypes) => {
   }
 
   Booking.addBooking = async function(bookingData) {
-    await Booking.create(bookingData);
+    let newBooking = await Booking.create(bookingData);
+    return newBooking;
+  }
+
+  Booking.updateBooking = async function(bookingData, id) {
+    // console.log('This is Booking Data ID Beform Update: ', id)
+    // console.log('This is Booking Data Before Update: ', bookingData)
+    const { Spot } = require('../models')
+    let spot = await Spot.findByPk(bookingData.spotId)
+    console.log('THIS IS SPOT: ', spot)
+
+    let booking = await Booking.findByPk(id)
+    let updatedBooking = await booking.update(bookingData)
+  
+    updatedBooking.dataValues.Spot = spot
+    console.log('This Is Updated Booking After: ', updatedBooking)
+    return updatedBooking
   }
 
   Booking.deleteBooking = async function(id) {

@@ -1,6 +1,7 @@
 import {useState, useEffect, Children} from 'react';
 import { useSelector, useDispatch, connectAdvanced } from 'react-redux'
 import Calendar from 'react-calendar';
+import * as bookingActions from '../../store/bookings'
 import { csrfFetch } from '../../store/csrf'
 import './BookingForm.css'
 
@@ -8,12 +9,14 @@ import './BookingForm.css'
 
 const BookingForm = ( { updateData, setShowModal } ) => {
 
-    
+    const dispatch = useDispatch()
+
+    // let bookings = useSelector(state => state.bookings)
     let spot = useSelector(state => state.spot)
     const user = useSelector(state => state.session.user)
     
-    console.log('This Is updateData: ', updateData);
-    console.log('This Is spot: ',spot)
+    // console.log('This Is updateData: ', updateData);
+    // console.log('This Is spot: ',spot)
 
     let checkInData = null; 
     let checkOutData = null; 
@@ -111,11 +114,15 @@ const BookingForm = ( { updateData, setShowModal } ) => {
 
         // add a fetch request to put booking in database. 
 
-        
-        await csrfFetch('/api/bookings/', {
-            method: 'POST',
-            body: JSON.stringify(bookingData)
-        });
+        if (updateData) {
+            dispatch(bookingActions.updateBookingThunk(bookingData, updateData.id))
+        } else {
+            dispatch(bookingActions.makeBookingThunk(bookingData))
+        }
+        // await csrfFetch('/api/bookings/', {
+        //     method: 'POST',
+        //     body: JSON.stringify(bookingData)
+        // });
 
         
     }

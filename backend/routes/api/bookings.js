@@ -14,8 +14,17 @@ router.get('/:userId', asyncHandler(async (req, res, next) => {
 
 router.post('/', asyncHandler(async (req, res, next) => {
     const bookingData = req.body;
-    await Booking.addBooking(bookingData);
+    let newBooking = await Booking.addBooking(bookingData);
+    return res.json({ newBooking })
 }))
+
+router.put('/:id', asyncHandler(async (req, res, next) => {
+    const id = req.params.id
+    const bookingData = req.body;
+    const updatedBooking = await Booking.updateBooking(bookingData, id)
+    // console.log('This Is Updated Booking API: ', updatedBooking)
+    return res.json({ updatedBooking })
+})) 
 
 router.delete('/:id', asyncHandler(async (req, res, next) => {
     const id = req.params.id

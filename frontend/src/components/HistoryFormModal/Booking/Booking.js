@@ -21,6 +21,8 @@ const Booking = ( {bookings} ) => {
         // history.pop()
     }
 
+
+
     return (
         <div className='history-booking'>
             {bookings.map((booking, i) => {
@@ -28,7 +30,7 @@ const Booking = ( {bookings} ) => {
                     <div key={`book-hist-${i}`} className='sub-history-booking'>
                         <div className='hist-book-left'>
                             <span>You have a booking at: </span>
-                            <span className='title'>{booking.Spot.title}</span>
+                            <span className='title'>{booking.Spot?.title}</span>
                             <span>Your Check-In/Check-Out:</span>
                             <span>{`In: ${booking.checkIn.split('T')[0]} / Out: ${booking.checkOut.split('T')[0]}`}</span>
                         </div>
