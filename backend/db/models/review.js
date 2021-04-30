@@ -1,4 +1,6 @@
 'use strict';
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op
 module.exports = (sequelize, DataTypes) => {
   const Review = sequelize.define('Review', {
     cleanliness: {
@@ -42,5 +44,20 @@ module.exports = (sequelize, DataTypes) => {
     Review.belongsTo(models.Spot, { foreignKey: 'spotId' })
     Review.belongsTo(models.User, { foreignKey: 'userId' })
   };
+
+  Review.findAllOfUsersReviews = async function(userId) {
+    const { Spot } = require('../models')
+    const reviews = await Review.findAll({
+      where: {
+        userId: {
+          [Op.eq]: userId
+        }
+      },
+      include: [Spot]
+    });
+
+    return reviews
+  }
+
   return Review;
 };

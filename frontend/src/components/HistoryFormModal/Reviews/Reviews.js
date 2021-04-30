@@ -1,6 +1,9 @@
 import './Reviews.css'
 
-const Reviews = () => {
+const Reviews = ({ reviews }) => {
+
+    
+
     return (
         <div className='history-reviews'>
 

@@ -34,12 +34,6 @@ const ReviewSpot = () => {
                 </div>
                 <div className='review-comments'>
                     {reviews}
-                    {/* <ReviewComments review={review} />
-                    <ReviewComments />
-                    <ReviewComments />
-                    <ReviewComments />
-                    <ReviewComments />
-                    <ReviewComments /> */}
                 </div>
                 <div className='review-book-now-btn'>
                     <button>Book Now</button>
