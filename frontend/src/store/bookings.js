@@ -57,12 +57,10 @@ export const updateBookingThunk = (bookingData, id) => async (dispatch) => {
         body: JSON.stringify(bookingData)
     })
     let updatedBooking = await response.json()
-    console.log('This Is Updated Booking In Store: ', updatedBooking)
     dispatch(updateBooking(updatedBooking))
 } 
 
 export const deleteBookingThunk = (id) => async (dispatch) => {
-    console.log('THIS IS DELETE THUNK: ', console.log(id))
     await csrfFetch(`/api/bookings/${id}`, {
         method: 'DELETE'
     })
@@ -81,8 +79,6 @@ const bookingsReducer = (state = initialState, action) => {
         case DELETE_BOOKINGS:
             let idx = null;
             for (let i = 0; i < stateDup.length; ++i) {
-                console.log('stateDup[i]: ',stateDup[i])
-                console.log('action.payload: ', action.payload)
                 if (stateDup[i].id === action.payload) {
                     idx = i;
                     break;

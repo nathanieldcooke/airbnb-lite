@@ -20,7 +20,6 @@ if (process.env.NODE_ENV !== 'production') { // is development
 };
 
 function Root () {
-  console.log("This IS Store: ",store)
   return (
     <Provider store={store}>
       <ModalProvider>

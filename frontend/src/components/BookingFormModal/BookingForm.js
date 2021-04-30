@@ -11,12 +11,8 @@ const BookingForm = ( { updateData, setShowModal } ) => {
 
     const dispatch = useDispatch()
 
-    // let bookings = useSelector(state => state.bookings)
     let spot = useSelector(state => state.spot)
     const user = useSelector(state => state.session.user)
-    
-    // console.log('This Is updateData: ', updateData);
-    // console.log('This Is spot: ',spot)
 
     let checkInData = null; 
     let checkOutData = null; 

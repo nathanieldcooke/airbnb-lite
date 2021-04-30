@@ -8,7 +8,6 @@ const router = express.Router()
 router.get('/:userId', asyncHandler(async (req, res, next) => {
     const userId = req.params.userId
     const bookings = await Booking.getBookings(userId);
-    // console.log(bookings)
     return res.json(bookings);
 }))
 
@@ -22,7 +21,6 @@ router.put('/:id', asyncHandler(async (req, res, next) => {
     const id = req.params.id
     const bookingData = req.body;
     const updatedBooking = await Booking.updateBooking(bookingData, id)
-    // console.log('This Is Updated Booking API: ', updatedBooking)
     return res.json({ updatedBooking })
 })) 
 

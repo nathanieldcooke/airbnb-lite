@@ -1,7 +1,6 @@
 import './Spot.css'
 
 const Spot = ({spotObj}) => {
-    // console.log(spotObj)
     let country = spotObj.country;
     let city = spotObj.city;
     let state = spotObj.state; 
@@ -10,7 +9,6 @@ const Spot = ({spotObj}) => {
     let maxGuests = spotObj.maxGuests; 
     let rating = spotObj.rating; 
     let image = spotObj.Images.find(img => img.main === true).src; 
-    // console.log('Imgae: ', image)
 
 
     return (

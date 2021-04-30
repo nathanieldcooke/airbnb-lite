@@ -11,7 +11,6 @@ function ShowCaseBox ({id, title, src}) {
     const [link, setLink] = useState('')
 
     const handelSearchClick = (e) => {
-        console.log(e.target.id)
         const spotsCollection = e.target.id
         if (spotsCollection === '1') { setLink('top-rated') }
         else if (spotsCollection === '2') { setLink('bring-children') }

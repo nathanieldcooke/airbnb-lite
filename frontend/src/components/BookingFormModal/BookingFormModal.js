@@ -5,8 +5,6 @@ import BookingForm from './BookingForm';
 function BookingFormModal( { updateData, text } ) {
     const [showModal, setShowModal] = useState(false);
 
-    console.log("THis is the BOOOOOOKING:", updateData)
-
     return (
         <>
             <span onClick={() => setShowModal(true)}>{text}</span>
