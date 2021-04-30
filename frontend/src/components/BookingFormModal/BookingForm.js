@@ -94,7 +94,6 @@ const BookingForm = ( { setShowModal } ) => {
         await csrfFetch('/api/bookings/', {
             method: 'POST',
             body: JSON.stringify(bookingData)
-
         });
 
         

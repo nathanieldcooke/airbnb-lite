@@ -17,5 +17,11 @@ router.post('/', asyncHandler(async (req, res, next) => {
     await Booking.addBooking(bookingData);
 }))
 
+router.delete('/:id', asyncHandler(async (req, res, next) => {
+    const id = req.params.id
+    await Booking.deleteBooking(id)
+    return res.json({ id })
+}))
+
 
 module.exports = router;

@@ -53,5 +53,10 @@ module.exports = (sequelize, DataTypes) => {
   Booking.addBooking = async function(bookingData) {
     await Booking.create(bookingData);
   }
+
+  Booking.deleteBooking = async function(id) {
+    const booking = await Booking.findByPk(id)
+    await booking.destroy()
+  }
   return Booking;
 };

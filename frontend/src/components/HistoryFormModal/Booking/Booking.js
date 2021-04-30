@@ -1,10 +1,25 @@
+import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router'
+import * as bookingsActions from '../../../store/bookings'
 import BookingFormModal from '../../BookingFormModal/BookingFormModal'
 
 import './Booking.css'
 
 const Booking = ( {bookings} ) => {
+    
+    let dispatch = useDispatch()
 
+    // let bookings = useSelector(state)
+    // let history = useHistory()
 
+    const deleteBooking = async (id) => {
+        // history.push('/')
+        await dispatch(bookingsActions.deleteBookingThunk(id));
+
+        // await 
+
+        // history.pop()
+    }
 
     return (
         <div className='history-booking'>
@@ -19,7 +34,9 @@ const Booking = ( {bookings} ) => {
                         </div>
                         <div className='hist-book-right'>
                             <button className='hist-book-update-btn'><BookingFormModal text='Update'/></button>
-                            <button className='hist-book-delete-btn'>Delete</button>
+                            <button
+                            onClick={() => {deleteBooking(booking.id)}}
+                            className='hist-book-delete-btn'>Delete</button>
                         </div>
                     </div>
                 )
