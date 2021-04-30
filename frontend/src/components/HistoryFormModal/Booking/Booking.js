@@ -1,8 +1,10 @@
+import BookingFormModal from '../../BookingFormModal/BookingFormModal'
+
 import './Booking.css'
 
 const Booking = ( {bookings} ) => {
 
-    
+
 
     return (
         <div className='history-booking'>
@@ -16,7 +18,7 @@ const Booking = ( {bookings} ) => {
                             <span>{`In: ${booking.checkIn.split('T')[0]} / Out: ${booking.checkOut.split('T')[0]}`}</span>
                         </div>
                         <div className='hist-book-right'>
-                            <button className='hist-book-update-btn'>Update</button>
+                            <button className='hist-book-update-btn'><BookingFormModal text='Update'/></button>
                             <button className='hist-book-delete-btn'>Delete</button>
                         </div>
                     </div>

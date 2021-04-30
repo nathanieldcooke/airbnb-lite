@@ -62,7 +62,7 @@ const DisplaySpot = () => {
                     <div className='display-right-info'><img src={profileImg}></img></div>
                     </div>
                     <div className='display-buttons'>
-                        <div className='book-button'><button><BookingFormModal /></button></div>
+                        <div className='book-button'><button><BookingFormModal text='Book Now'/></button></div>
                         <div className='more-img-button'><button>More Images</button></div>
                     </div>
                 </div>
