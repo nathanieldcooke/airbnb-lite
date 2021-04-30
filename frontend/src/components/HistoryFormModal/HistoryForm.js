@@ -25,8 +25,6 @@ const HistoryForm = ({ setShowModal }) => {
         dispatch(bookingsActions.getBookingsThunk(user.id))
     }, [dispatch])
     
-    console.log(bookings)
-    
 
     return (
         <div 

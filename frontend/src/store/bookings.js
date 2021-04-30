@@ -23,7 +23,6 @@ const deleteBooking = (id) => {
 export const getBookingsThunk = (userId) => async (dispatch) => {
     const response = await csrfFetch(`/api/bookings/${userId}`);
     const bookings = await response.json();
-    console.log(bookings)
     dispatch(getBookings(bookings));
 }
 

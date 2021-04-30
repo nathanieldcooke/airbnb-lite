@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import BookingForm from './BookingForm';
 
-function BookingFormModal( { text } ) {
+function BookingFormModal( { updateData, text } ) {
     const [showModal, setShowModal] = useState(false);
 
     return (
@@ -13,7 +13,7 @@ function BookingFormModal( { text } ) {
                     e.stopPropagation()
                     setShowModal(false)
                 }}>
-                    <BookingForm setShowModal={setShowModal} />
+                    <BookingForm updateData={updateData} setShowModal={setShowModal} />
                 </Modal>
             )}
         </>

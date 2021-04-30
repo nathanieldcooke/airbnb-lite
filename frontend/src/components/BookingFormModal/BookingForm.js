@@ -6,15 +6,33 @@ import './BookingForm.css'
 
 
 
-const BookingForm = ( { setShowModal } ) => {
+const BookingForm = ( { updateData, setShowModal } ) => {
 
-    const spot = useSelector(state => state.spot)
+    
+    let spot = useSelector(state => state.spot)
     const user = useSelector(state => state.session.user)
+    
+    console.log('This Is updateData: ', updateData);
+    console.log('This Is spot: ',spot)
+
+    let checkInData = null; 
+    let checkOutData = null; 
+    let childrenData = null; 
+    let infantsData = null; 
+    let numOfGuestsData = null; 
+    if (updateData) {
+        spot = updateData.Spot
+        checkInData = updateData.checkIn
+        checkOutData = updateData.checkOut
+        childrenData = updateData.children
+        infantsData = updateData.infants
+        numOfGuestsData = updateData.numOfGuests
+    }
 
 
+    
     // const dispatch = useDispatch();
 
-    console.log(spot)
     
     const monthToNum = {
         Jan: 1,
@@ -79,6 +97,8 @@ const BookingForm = ( { setShowModal } ) => {
             setShowModal(false)
         }, 5000)
 
+
+
         let bookingData = {
             checkIn: dateIn,
             checkOut: dateOut,
@@ -91,6 +111,7 @@ const BookingForm = ( { setShowModal } ) => {
 
         // add a fetch request to put booking in database. 
 
+        
         await csrfFetch('/api/bookings/', {
             method: 'POST',
             body: JSON.stringify(bookingData)
@@ -99,13 +120,13 @@ const BookingForm = ( { setShowModal } ) => {
         
     }
     
-    const [dateIn, setDateIn] = useState(new Date());
-    const [dateOut, setDateOut] = useState(new Date());
+    const [dateIn, setDateIn] = useState(updateData ? new Date(checkInData) : new Date());
+    const [dateOut, setDateOut] = useState(updateData ? new Date(checkOutData) : new Date());
     const [selectedDates, setSelectedDates] = useState([convertCalenderDate(dateIn), dateOut])
     const [page, setPage] = useState(1);
-    const [children, setChildren] = useState(false)
-    const [infants, setInfants] = useState(false)
-    const [guests, setGuests] = useState(1)
+    const [children, setChildren] = useState(updateData ? childrenData : false)
+    const [infants, setInfants] = useState(updateData ? infantsData : false)
+    const [guests, setGuests] = useState(updateData ? numOfGuestsData : 1)
     const [validationErrors, setValidationErrors] = useState([])
 
 

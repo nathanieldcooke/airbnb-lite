@@ -33,7 +33,7 @@ const Booking = ( {bookings} ) => {
                             <span>{`In: ${booking.checkIn.split('T')[0]} / Out: ${booking.checkOut.split('T')[0]}`}</span>
                         </div>
                         <div className='hist-book-right'>
-                            <button className='hist-book-update-btn'><BookingFormModal text='Update'/></button>
+                            <button className='hist-book-update-btn'><BookingFormModal updateData={booking} text='Update'/></button>
                             <button
                             onClick={() => {deleteBooking(booking.id)}}
                             className='hist-book-delete-btn'>Delete</button>
