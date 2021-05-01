@@ -73,5 +73,13 @@ module.exports = (sequelize, DataTypes) => {
     await review.destroy();
   }
 
+  Review.updateReview = async function(updateData, id) {
+    console.log('API DATE AND ID: ', updateData, id)
+    const review = await Review.findByPk(id)
+    const updatedReview = await review.update(updateData)
+    console.log('API UPDATED REVIEW: ',updatedReview)
+    return updatedReview
+  }
+
   return Review;
 };

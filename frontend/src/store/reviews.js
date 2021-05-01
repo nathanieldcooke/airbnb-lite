@@ -2,6 +2,7 @@ import { csrfFetch } from './csrf'
 
 const GET_REVIEWS = 'reviews/getReviews'
 const POST_REVEIW = 'reviews/postReview'
+const EDIT_REVIEW = 'reviews/editReview'
 const DELETE_REVIEW = 'reviews/deleteReview'
 
 /////////////////// ACTION CREATORS ////////////////////
@@ -17,6 +18,13 @@ const postReview = (reviewData) => {
     return {
         type: POST_REVEIW,
         payload: reviewData
+    }
+}
+
+const editReview = (review) => {
+    return {
+        type: EDIT_REVIEW,
+        payload: review
     }
 }
 
@@ -44,6 +52,17 @@ export const postReviewThunk = (reviewData) => async (dispatch) => {
     dispatch(postReview(newReview))
 }
 
+export const editReviewThunk = (updateData, id) => async (dispatch) => {
+    console.log('STORE UPDATE DATA: ', updateData)
+    let response = await csrfFetch(`/api/reviews/${id}`, {
+        method: 'PUT', 
+        body: JSON.stringify(updateData)
+    })
+
+    let updatedReview = await response.json()
+    dispatch(editReview(updatedReview))
+}
+
 export const deleteReviewThunk = (id) => async (dispatch) => {
     await csrfFetch(`/api/reviews/${id}`,{
         method: 'DELETE'
@@ -63,16 +82,21 @@ const reviewsReducer = (state = initialState, action) => {
             return [...action.payload]
         case POST_REVEIW:
             return [...state, action.payload]
+        case EDIT_REVIEW:
+            for (let i = 0; i < stateDup.length; i++) {
+                if (stateDup[i].id === action.payload.id) {
+                    stateDup[i] = action.payload;
+                    break;
+                }
+            }
+            return stateDup
         case DELETE_REVIEW:
             for(let i = 0; i < stateDup.length; i++) {
                 if (stateDup[i].id === action.payload) {
                     idx = i;
-                    // console.log('STORE IDX: ', idx)
-                    // console.log('STORE I : ', i)
                     break;
                 }
             }
-            // console.log('STORE STATEDUP: ', stateDup)
             stateDup.splice(idx, 1)
             return stateDup
         default:

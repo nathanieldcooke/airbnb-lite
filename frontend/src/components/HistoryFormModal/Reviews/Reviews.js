@@ -26,7 +26,7 @@ const Reviews = ( { reviewsObj, stayedAtHistoryObj, spotsStayedAt } ) => {
                                 <button
                                     onClick={() => {deleteReview(reviewsObj[spotId].id)}}
                                 >Delete Review</button>
-                                <button>Edit Review</button>
+                            <button><ReviewFormModal updateData={reviewsObj[spotId]} spotId={spotId} text='Edit Review' /></button>
                             </div>
                         </div>
                     )
@@ -35,7 +35,7 @@ const Reviews = ( { reviewsObj, stayedAtHistoryObj, spotsStayedAt } ) => {
                     let spot = stayedAtHistoryObj[spotId]
                     return (
                         <div key={`hist-rev-${i}`} className='history-review-not-left'>
-                            <span>For Stay At: <span> {spot.title}</span></span>
+                            <span>You Stayed At: <span> {spot.title}</span></span>
                             <div className='review-buttons'>
                                 <button><ReviewFormModal spotId={spotId} text='Leave Review'/></button>
                             </div>

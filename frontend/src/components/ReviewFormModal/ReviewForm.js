@@ -3,19 +3,40 @@ import {useSelector, useDispatch } from 'react-redux'
 import * as reviewsActions from '../../store/reviews'
 import './ReviewForm.css'
 
-function ReviewForm( { spotId, setShowModal } ) {
+function ReviewForm( { updateData, spotId, setShowModal } ) {
 
+    console.log('UPDATE DATA: ', updateData)
     const dispatch = useDispatch()
 
-    const [cleanliness, setCleanliness] = useState(null)
-    const [communication, setCommunication] = useState(null)
-    const [checkIn, setCheckIn] = useState(null)
-    const [accuracy, setAccuracy] = useState(null)
-    const [location, setLocation] = useState(null)
-    const [value, setValue] = useState(null)
-    const [reviewContent, setReviewContent] = useState('')
-    const [radiosChecked, setRadiosChecked] = useState(false)
-    const [validationErrors, setValidationErrors] = useState([])
+    let cleanlinessData = null
+    let communicationData = null
+    let checkInData = null
+    let accuracyData = null
+    let locationData = null
+    let valueData = null
+    let reviewContentData = null
+
+    if (updateData) {
+        cleanlinessData = updateData.cleanliness;
+        communicationData = updateData.communication;
+        checkInData = updateData.checkIn;
+        accuracyData = updateData.accuracy;
+        locationData = updateData.location;
+        valueData = updateData.value;
+        reviewContentData = updateData.reviewContent
+    }
+
+    // console.log(cleanlinessData, communicationData, checkInData, accuracyData, locationData, valueData, reviewContentData)
+
+    const [cleanliness, setCleanliness] = useState( updateData ? cleanlinessData : null)
+    const [communication, setCommunication] = useState( updateData ? communicationData : null)
+    const [checkIn, setCheckIn] = useState( updateData ? checkInData : null)
+    const [accuracy, setAccuracy] = useState( updateData ? accuracyData : null)
+    const [location, setLocation] = useState( updateData ? locationData : null)
+    const [value, setValue] = useState( updateData ? valueData : null)
+    const [reviewContent, setReviewContent] = useState( updateData ? reviewContentData : '')
+    const [radiosChecked, setRadiosChecked] = useState( updateData ? true : false)
+    const [validationErrors, setValidationErrors] = useState( [] )
 
     const user = useSelector(state => state.session.user)
 
@@ -43,7 +64,11 @@ function ReviewForm( { spotId, setShowModal } ) {
             userId: user.id
         }
 
-        dispatch(reviewsActions.postReviewThunk(reviewData))
+        if (updateData) {
+            dispatch(reviewsActions.editReviewThunk(reviewData, updateData.id))
+        } else {
+            dispatch(reviewsActions.postReviewThunk(reviewData))
+        }
 
         setShowModal(false)
     }
