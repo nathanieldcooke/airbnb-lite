@@ -15,7 +15,6 @@ router.get('/:userId', asyncHandler(async (req, res) => {
 router.post('/', asyncHandler(async (req, res) => {
     const data = req.body
     const postedReview = await Review.postReview(data)
-    // console.log(data)
     return res.json(postedReview)
 
 }))

@@ -5,7 +5,6 @@ import './ReviewForm.css'
 
 function ReviewForm( { updateData, spotId, setShowModal } ) {
 
-    console.log('UPDATE DATA: ', updateData)
     const dispatch = useDispatch()
 
     let cleanlinessData = null
@@ -26,8 +25,6 @@ function ReviewForm( { updateData, spotId, setShowModal } ) {
         reviewContentData = updateData.reviewContent
     }
 
-    // console.log(cleanlinessData, communicationData, checkInData, accuracyData, locationData, valueData, reviewContentData)
-
     const [cleanliness, setCleanliness] = useState( updateData ? cleanlinessData : null)
     const [communication, setCommunication] = useState( updateData ? communicationData : null)
     const [checkIn, setCheckIn] = useState( updateData ? checkInData : null)
@@ -40,7 +37,6 @@ function ReviewForm( { updateData, spotId, setShowModal } ) {
 
     const user = useSelector(state => state.session.user)
 
-    console.log('Spot and User ID"s: ', user.id, spotId )
 
     useEffect(() => {
         let errors = []

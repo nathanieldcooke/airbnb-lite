@@ -53,7 +53,6 @@ export const postReviewThunk = (reviewData) => async (dispatch) => {
 }
 
 export const editReviewThunk = (updateData, id) => async (dispatch) => {
-    console.log('STORE UPDATE DATA: ', updateData)
     let response = await csrfFetch(`/api/reviews/${id}`, {
         method: 'PUT', 
         body: JSON.stringify(updateData)
