@@ -4,6 +4,7 @@ import Calendar from 'react-calendar';
 import { csrfFetch } from '../../store/csrf'
 import * as bookingsActions from '../../store/bookings'
 import * as reviewsActions from '../../store/reviews'
+import * as stayedAtHistoryActions from '../../store/stayedAtHistory'
 import './HistoryForm.css'
 import Booking from './Booking/Booking';
 import Reviews from './Reviews/Reviews';
@@ -18,6 +19,8 @@ const HistoryForm = ({ setShowModal }) => {
     const bookings = useSelector(state => state.bookings)
     const user = useSelector(state => state.session.user)
     const reviews = useSelector(state => state.reviews)
+    const stayedAtHistory = useSelector(state => state.stayedAtHistory)
+
 
     const [page, setPage] = useState('bookings');
 
@@ -25,9 +28,23 @@ const HistoryForm = ({ setShowModal }) => {
     useEffect(() => {
         dispatch(bookingsActions.getBookingsThunk(user.id))
         dispatch(reviewsActions.getReviewsThunk(user.id))
+        dispatch(stayedAtHistoryActions.getStayedAtHistoryThunk(user.id))
     }, [dispatch])
     
     console.log('From HistoryFrom(reviews): ', reviews)
+    console.log('From HistoryFrom(sAtHistory): ', stayedAtHistory)
+
+    let spotsStayedAt = stayedAtHistory.map(sAH => sAH.spotId)
+    const reviewsObj = {}
+    reviews.forEach(review => reviewsObj[review.spotId] = review)
+    console.log('New Review Object: ', reviewsObj)
+
+    const stayedAtHistoryObj = {}
+    stayedAtHistory.forEach(spot => stayedAtHistoryObj[spot.Spot.id] = spot.Spot)
+    console.log('New Review Object: ', stayedAtHistoryObj)
+
+    console.log('Spots: ', spotsStayedAt)
+
 
     return (
         <div 
@@ -58,7 +75,7 @@ const HistoryForm = ({ setShowModal }) => {
             </div>
             <div className='sub-history'>
                 {page === 'bookings' && <Booking bookings={bookings} />}
-                {page === 'reviews' && <Reviews reviews={reviews}/>}
+                {page === 'reviews' && <Reviews stayedAtHistoryObj={stayedAtHistoryObj} spotsStayedAt={spotsStayedAt} reviewsObj={reviewsObj}/>}
                 {page === 'spots' && <Spots/>}
             </div>
         </div>

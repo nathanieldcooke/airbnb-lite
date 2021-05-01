@@ -1,11 +1,11 @@
 INSERT into "StayedAtHistories" ("spotId", "userId", "createdAt", "updatedAt") VALUES 
-(111, 5, current_timestamp, current_timestamp),
-(111, 3, current_timestamp, current_timestamp),
-(111, 1, current_timestamp, current_timestamp),
-(111, 15, current_timestamp, current_timestamp),
-(111, 2, current_timestamp, current_timestamp),
-(111, 4, current_timestamp, current_timestamp),
-(111, 10, current_timestamp, current_timestamp);
+(5, 111, current_timestamp, current_timestamp),
+(3, 111, current_timestamp, current_timestamp),
+(1, 111, current_timestamp, current_timestamp),
+(15, 111, current_timestamp, current_timestamp),
+(2, 111, current_timestamp, current_timestamp),
+(4, 111, current_timestamp, current_timestamp),
+(10, 111, current_timestamp, current_timestamp);
 
 
 INSERT into "Reviews" ("cleanliness", "communication", "checkIn", "accuracy", "location", "value", "reviewContent", "spotId", "userId", "createdAt", "updatedAt") VALUES 

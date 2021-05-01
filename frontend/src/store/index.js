@@ -6,13 +6,15 @@ import spotsReducer from './spots';
 import spotReducer from './spot'
 import bookingsReducer from './bookings'
 import reviewsReducer from './reviews'
+import stayedAtHistoryReducer from './stayedAtHistory'
 
 const rootReducer = combineReducers({
     session: sessionReducer,
     spots: spotsReducer,
     spot: spotReducer,
     bookings: bookingsReducer,
-    reviews: reviewsReducer
+    reviews: reviewsReducer,
+    stayedAtHistory: stayedAtHistoryReducer
 });
 
 let enhancer;

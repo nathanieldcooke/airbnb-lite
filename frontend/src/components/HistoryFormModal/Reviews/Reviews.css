@@ -2,4 +2,39 @@
     border: 5px solid blue;
     height: 100%;
     width: 100%;
+    overflow: scroll;
 }
+
+.history-review-left, .history-review-not-left {
+    /* width: 10em; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    height: 7em;
+    border-bottom: 2px solid black;
+}
+
+.history-review-left > span, .history-review-not-left > span {
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
+.history-review-left > span > span, .history-review-not-left > span > span {
+    /* font-size: 1.25em; */
+    font-weight: 400;
+}
+
+.history-reviews button {
+    border-radius: .25em;
+    height: 1.25em;
+    font-size: 1.5em;
+    margin-right: 1em;
+}
+
+.history-reviews i {
+    color: red
+}
+
+
