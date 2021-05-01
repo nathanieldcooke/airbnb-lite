@@ -1,0 +1,73 @@
+.review-form-container {
+    height: 30em;
+    padding: 1em;
+    border: 2px solid black;
+    border-radius: 1em;
+    overflow: scroll;
+}
+
+.reviews-buttons-row {
+    display: flex;
+    justify-content: space-evenly;
+    width: 30em;
+    margin-bottom: 2em;
+}
+
+.reviews-buttons-row > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.reviews-buttons-row > div > label {
+    margin-bottom: .5em;
+}
+
+.review-buttons-row-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* width: 100%; */
+}
+
+.review-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.review-buttons-row-container > label {
+    font-size: 1.25em;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+.review-content > textarea {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+    width: 100%;
+    height: 10em;
+}
+
+.review-content > ul {
+    color: red;
+    font-size: 1.25em;
+}
+
+.review-form-container button{
+    border-radius: .25em;
+    height: 1.25em;
+    /* align-self: center;
+    justify-self: center; */
+    font-size: 2em;
+}
+
+.button-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}

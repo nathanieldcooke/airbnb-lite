@@ -59,5 +59,14 @@ module.exports = (sequelize, DataTypes) => {
     return reviews
   }
 
+  Review.postReview = async function(reviewData) {
+    const { Spot } = require('../models')
+    let postedReview = await Review.create(reviewData);
+    postedReview = await Review.findByPk(postedReview.id, {
+      include: Spot
+    })
+    return postedReview 
+  }
+
   return Review;
 };

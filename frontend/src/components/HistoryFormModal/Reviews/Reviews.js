@@ -1,3 +1,4 @@
+import ReviewFormModal from '../../ReviewFormModal/ReviewFormModal'
 import './Reviews.css'
 
 const Reviews = ( { reviewsObj, stayedAtHistoryObj, spotsStayedAt } ) => {
@@ -29,7 +30,7 @@ const Reviews = ( { reviewsObj, stayedAtHistoryObj, spotsStayedAt } ) => {
                         <div key={`hist-rev-${i}`} className='history-review-not-left'>
                             <span>For Stay At: <span> {spot.title}</span></span>
                             <div className='review-buttons'>
-                                <button>Leave Review</button>
+                                <button><ReviewFormModal spotId={spotId} text='Leave Review'/></button>
                             </div>
                         </div>
                     )
