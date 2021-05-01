@@ -1,9 +1,14 @@
+import { useDispatch } from 'react-redux'
+import * as reviewsActions from '../../../store/reviews'
 import ReviewFormModal from '../../ReviewFormModal/ReviewFormModal'
 import './Reviews.css'
 
 const Reviews = ( { reviewsObj, stayedAtHistoryObj, spotsStayedAt } ) => {
+    const dispatch = useDispatch()
 
-    
+    const deleteReview = (id) => {
+        dispatch(reviewsActions.deleteReviewThunk(id))
+    }
 
     return (
         <div className='history-reviews'>
@@ -18,7 +23,9 @@ const Reviews = ( { reviewsObj, stayedAtHistoryObj, spotsStayedAt } ) => {
                         ((review.cleanliness + review.communication + review.checkIn + review.accuracy + review.location + review.value) / 6).toFixed(2)
                         }</span>
                             <div className='review-buttons'>
-                                <button>Delete Review</button>
+                                <button
+                                    onClick={() => {deleteReview(reviewsObj[spotId].id)}}
+                                >Delete Review</button>
                                 <button>Edit Review</button>
                             </div>
                         </div>

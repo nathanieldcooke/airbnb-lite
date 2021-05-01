@@ -68,5 +68,10 @@ module.exports = (sequelize, DataTypes) => {
     return postedReview 
   }
 
+  Review.deleteReview = async function(id) {
+    const review = await Review.findByPk(id)
+    await review.destroy();
+  }
+
   return Review;
 };

@@ -2,6 +2,7 @@ import { csrfFetch } from './csrf'
 
 const GET_REVIEWS = 'reviews/getReviews'
 const POST_REVEIW = 'reviews/postReview'
+const DELETE_REVIEW = 'reviews/deleteReview'
 
 /////////////////// ACTION CREATORS ////////////////////
 
@@ -16,6 +17,13 @@ const postReview = (reviewData) => {
     return {
         type: POST_REVEIW,
         payload: reviewData
+    }
+}
+
+const deleteReview = (id) => {
+    return {
+        type: DELETE_REVIEW,
+        payload: id
     }
 }
 
@@ -36,17 +44,37 @@ export const postReviewThunk = (reviewData) => async (dispatch) => {
     dispatch(postReview(newReview))
 }
 
+export const deleteReviewThunk = (id) => async (dispatch) => {
+    await csrfFetch(`/api/reviews/${id}`,{
+        method: 'DELETE'
+    })
+    dispatch(deleteReview(id))
+}
+
 ///////////////// Reducer //////////////////
 
 const initialState = [];
 
 const reviewsReducer = (state = initialState, action) => {
     let stateDup = [...state]
+    let idx = null;
     switch (action.type) {
         case GET_REVIEWS:
             return [...action.payload]
         case POST_REVEIW:
             return [...state, action.payload]
+        case DELETE_REVIEW:
+            for(let i = 0; i < stateDup.length; i++) {
+                if (stateDup[i].id === action.payload) {
+                    idx = i;
+                    // console.log('STORE IDX: ', idx)
+                    // console.log('STORE I : ', i)
+                    break;
+                }
+            }
+            // console.log('STORE STATEDUP: ', stateDup)
+            stateDup.splice(idx, 1)
+            return stateDup
         default:
             return state
     }
