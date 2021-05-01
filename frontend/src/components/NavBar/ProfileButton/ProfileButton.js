@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import ProfileBtn from '../../DropDowns/ProfileBtn/ProfileBtn'
 import './ProfileButton.css'
 

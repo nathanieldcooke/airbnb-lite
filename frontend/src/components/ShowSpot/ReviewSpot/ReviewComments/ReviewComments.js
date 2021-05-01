@@ -1,4 +1,3 @@
-import { useSelector } from 'react-redux';
 import './ReviewComments.css'
 
 const ReviewComments = ( { review } ) => {
@@ -13,7 +12,7 @@ const ReviewComments = ( { review } ) => {
     return (
         <div className='review-comment'>
             <div className='review-pic-name'>
-                <img src={profileImg}></img>
+                <img src={profileImg} alt='house'></img>
                 <span>{review.User?.username}</span>
                 {/* <span>{review.User?.username}</span> */}
             </div>

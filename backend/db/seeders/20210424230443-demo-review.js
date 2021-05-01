@@ -11,6 +11,11 @@ module.exports = {
       return Math.floor(Math.random() * (max - min) + min);
     }
 
+    function max300Char(review) {
+      let idx = getRandNumBetween(10, 300)
+      return review.split('').splice(0, idx).join('');
+    }
+
     const reviewSeeds = [];
     const reviewsArr = [];
 
@@ -28,7 +33,7 @@ module.exports = {
         let location = getRandNumBetween(3, 6);
         let value = getRandNumBetween(3, 6);
   
-        let reviewContent = faker.lorem.paragraph(getRandNumBetween(1, 15));
+        let reviewContent = max300Char(faker.lorem.paragraph(getRandNumBetween(1, 15)));
 
         let userId = record.userId;
         let spotId = record.spotId;

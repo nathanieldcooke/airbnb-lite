@@ -1,7 +1,5 @@
-import { useState, useEffect, Children } from 'react';
-import { useSelector, useDispatch, connectAdvanced } from 'react-redux'
-import Calendar from 'react-calendar';
-import { csrfFetch } from '../../store/csrf'
+import { useState, useEffect} from 'react';
+import { useSelector, useDispatch } from 'react-redux'
 import * as bookingsActions from '../../store/bookings'
 import * as reviewsActions from '../../store/reviews'
 import * as stayedAtHistoryActions from '../../store/stayedAtHistory'

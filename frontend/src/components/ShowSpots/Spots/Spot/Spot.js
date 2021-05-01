@@ -15,7 +15,7 @@ const Spot = ({spotObj}) => {
         <div className='spot' onClick={() => window.open(`http://localhost:3000/spot/${spotObj.id}`, '_blank', 'noopener noreferrer')}>
             <div className='spot-sub'>
                 <div className='spot-img-container'>
-                    <img src={image} ></img>
+                    <img src={image} alt='house' ></img>
                 </div>
                 <div className='spot-text-container'>
                     <div className='top-box'>

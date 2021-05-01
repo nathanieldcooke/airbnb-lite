@@ -1,7 +1,6 @@
-import { csrfFetch } from '../../store/csrf'
-import {useEffect, useState} from 'react'
+import {useEffect} from 'react'
 import { useParams } from 'react-router-dom'
-import {useSelector, useDispatch} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import * as spotsActions from '../../store/spot'
 import './ShowSpot.css'
 import DisplaySpot from './DisplaySpot/DisplaySpot'
@@ -11,9 +10,8 @@ import ReviewSpot from './ReviewSpot/ReviewSpot'
 
 const ShowSpot = () => {
     const dispatch = useDispatch();
-    const spot = useSelector(state => state.spot)
     const spotId = useParams().spotId
-    useEffect( async () => {
+    useEffect( () => {
         dispatch(spotsActions.getSpotThunk(spotId));
     }, [dispatch])
     return (

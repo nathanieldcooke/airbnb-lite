@@ -1,5 +1,3 @@
-import * as sessionActions from '../../../../store/session'
-import { useDispatch, useSelector } from 'react-redux';
 import {useState} from 'react';
 import './LoggedOut.css'
 import LoginFormModal from '../../../LoginFormModal/LoginFormModal';
@@ -7,9 +5,7 @@ import SignupFormModal from '../../../SignupFormModal/SignupFormModal';
 
 
 const LoggedOut = ( { display } ) => {
-    const dispatch = useDispatch();
-    const [displayLogIn, setDisplayLogIn] = useState(false);
-    const userSession = useSelector(state => state.session)
+    const [_displayLogIn, setDisplayLogIn] = useState(false);
     return (
         <>
             <div className='login-modal'></div>

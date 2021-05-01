@@ -1,5 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux'
-import { useHistory } from 'react-router'
+import { useDispatch } from 'react-redux'
 import * as bookingsActions from '../../../store/bookings'
 import BookingFormModal from '../../BookingFormModal/BookingFormModal'
 

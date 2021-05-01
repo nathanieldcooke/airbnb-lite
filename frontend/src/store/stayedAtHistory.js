@@ -24,7 +24,6 @@ export const getStayedAtHistoryThunk = (userId) => async (dispatch) => {
 const initialState = [];
 
 const stayedAtHistoryReducer = (state = initialState, action) => {
-    let stateDup = [...state]
     switch (action.type) {
         case GET_STAYED_AT_HISTORY:
             return [...action.payload]

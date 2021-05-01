@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import BookingFormModal from '../../BookingFormModal/BookingFormModal'
 import './DisplaySpot.css'
 
@@ -46,10 +46,10 @@ const DisplaySpot = () => {
                     </div>
                 </div>
                 <div className='display-images-box'>
-                    <div className='display-main-img'><img src={mainImg}></img></div>
+                    <div className='display-main-img'><img src={mainImg} alt='house'></img></div>
                     <div className='display-images-box-sub'>
                         {newImgArr.map((imgSrc, i) => (
-                            <div key={`spot-div-img${i}`} className={`img${i + 1}`}><img key={`spot-img-img${i}`} src={imgSrc}></img></div>
+                            <div key={`spot-div-img${i}`} className={`img${i + 1}`}><img key={`spot-img-img${i}`} alt='house' src={imgSrc}></img></div>
                         ))}
                     </div>
                 </div>
@@ -59,7 +59,7 @@ const DisplaySpot = () => {
                             <span className='span1'>Hosted by {userName}</span>
                             <span className='span2'>{maxGuests} guests - {bedrooms} bedroom - {beds} bed - {bathrooms} bath</span>
                         </div>
-                    <div className='display-right-info'><img src={profileImg}></img></div>
+                        <div className='display-right-info'><img src={profileImg} alt='house'></img></div>
                     </div>
                     <div className='display-buttons'>
                         <div className='book-button'><button><BookingFormModal text='Book Now'/></button></div>

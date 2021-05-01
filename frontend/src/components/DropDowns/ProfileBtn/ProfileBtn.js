@@ -1,5 +1,5 @@
 // import * as sessionActions from '../../../store/session'
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import './ProfileBtn.css'
 import LoggedIn from './LoggedIn/LoggedIn';
 import LoggedOut from './LoggedOut/LoggedOut';

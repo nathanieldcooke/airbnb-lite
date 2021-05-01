@@ -1,12 +1,11 @@
 import * as sessionActions from '../../../../store/session'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import './LoggedIn.css'
 import HistoryFormModal from '../../../HistoryFormModal/HistoryFormModal';
 
 
 const LoggedIn = ( { display } ) => {
     const dispatch = useDispatch();
-    const userSession = useSelector(state => state.session)
 
     
 

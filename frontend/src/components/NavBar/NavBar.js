@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState, useContext } from 'react';
+import { useEffect, useState } from 'react';
 import ProfileButton from './ProfileButton/ProfileButton';
 import SearchBar from './SearchBar/SearchBar';
 import './NavBar.css'

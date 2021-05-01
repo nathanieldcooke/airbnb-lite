@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
-import LoginFormPage from "./components/LoginFormModal/LoginFormModal";
 import HomePage from "./components/HomePage/HomePage";
 // import Navigation from "./components/Navigation";
 import SignupFormPage from "./components/SignupFormModal/SignupFormModal";

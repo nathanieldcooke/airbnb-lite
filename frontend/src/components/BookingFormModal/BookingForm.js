@@ -1,8 +1,7 @@
-import {useState, useEffect, Children} from 'react';
-import { useSelector, useDispatch, connectAdvanced } from 'react-redux'
+import {useState, useEffect} from 'react';
+import { useSelector, useDispatch} from 'react-redux'
 import Calendar from 'react-calendar';
 import * as bookingActions from '../../store/bookings'
-import { csrfFetch } from '../../store/csrf'
 import './BookingForm.css'
 
 

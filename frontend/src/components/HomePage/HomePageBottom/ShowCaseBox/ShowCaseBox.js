@@ -1,11 +1,8 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import * as spotsActions from '../../../../store/spots'
 import './ShowCaseBox.css'
         // later also an img
 function ShowCaseBox ({id, title, src}) {
-    const dispatch = useDispatch();
     // const spots = useSelector(state => state.spots)
     const [redirect, setRedirect] = useState(false)
     const [link, setLink] = useState('')
@@ -29,7 +26,7 @@ function ShowCaseBox ({id, title, src}) {
         <div onClick={(e) => {handelSearchClick(e)}} className='show-case-box'>
             <span>{title}</span>
             <div className='image'>
-                <img src={`${src}`} id={id}/>
+                <img src={`${src}`} alt='property' id={id}/>
             </div>
         </div>
     )
