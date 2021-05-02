@@ -1,5 +1,6 @@
 import HomePageBottom from './HomePageBottom/HomePageBottom'
 import HomePageTop from './HomePageTop/HomePageTop'
+import Footer from '../Footer/Footer'
 import './HomePage.css'
 
 const HomePage = () => {
@@ -7,6 +8,7 @@ const HomePage = () => {
         <div className='main-page-container'>
             <HomePageTop />
             <HomePageBottom />
+            <Footer />
         </div>
     )
 }

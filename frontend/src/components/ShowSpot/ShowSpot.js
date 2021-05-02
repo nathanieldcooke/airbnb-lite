@@ -6,6 +6,7 @@ import './ShowSpot.css'
 import DisplaySpot from './DisplaySpot/DisplaySpot'
 // import BookSpot from './BookSpot/BookSpot'
 import ReviewSpot from './ReviewSpot/ReviewSpot'
+import Footer from '../Footer/Footer'
 
 
 const ShowSpot = () => {
@@ -18,6 +19,7 @@ const ShowSpot = () => {
         <div className='show-spot-container'>
             <DisplaySpot/>
             <ReviewSpot/>
+            <Footer />
             {/* <BookSpot/> */}
         </div>
     )

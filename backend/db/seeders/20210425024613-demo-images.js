@@ -13,8 +13,8 @@ module.exports = {
 
     const allSpots = await Spot.findAll();
     const imageSeeds = [];
-    const mainImg = 'https://st.depositphotos.com/1507819/2694/v/600/depositphotos_26948143-stock-illustration-house-drawing.jpg'
-    const otherImg = 'https://images.template.net/wp-content/uploads/2016/03/15131449/Easy-and-Simple-Drawing-of-House-Free-PDF-Download.jpg'
+    // const mainImg = 'https://st.depositphotos.com/1507819/2694/v/600/depositphotos_26948143-stock-illustration-house-drawing.jpg'
+    // const otherImg = 'https://images.template.net/wp-content/uploads/2016/03/15131449/Easy-and-Simple-Drawing-of-House-Free-PDF-Download.jpg'
 
 
     // allSpots.forEach(spot => {

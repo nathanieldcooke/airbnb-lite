@@ -5,6 +5,7 @@ import * as spotsActions from '../../store/spots'
 import Map from './Map/Map';
 import Spots from './Spots/Spots';
 import './ShowSpots.css'
+import Footer from '../Footer/Footer';
 
 
 const ShowSpots = () => {
@@ -48,10 +49,13 @@ const ShowSpots = () => {
     
 
     return (
-        <div className='random-test'>
-            <Spots spotsArr={spotsArr}/>
-            <Map />
-        </div>
+        <>
+            <div className='random-test'>
+                <Spots spotsArr={spotsArr}/>
+                <Map />
+            </div>
+            <Footer/>
+        </>
        
     )
 }

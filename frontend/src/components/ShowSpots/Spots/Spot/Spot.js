@@ -12,6 +12,7 @@ const Spot = ({spotObj}) => {
 
 
     return (
+        // https://auth-me-app.herokuapp.com/
         <div className='spot' onClick={() => window.open(`http://localhost:3000/spot/${spotObj.id}`, '_blank', 'noopener noreferrer')}>
             <div className='spot-sub'>
                 <div className='spot-img-container'>
