@@ -13,19 +13,20 @@ const DisplaySpot = () => {
     let city = spot.city
     let state = spot.state
     let country = spot.country
-    // let mainImg = spot.Images?.find(img => img.main === true).src
-    let mainImg = 'https://a0.muscache.com/im/pictures/40104227/bdec5982_original.jpg?im_w=1200'
-    let newImgArr = [
-        'https://a0.muscache.com/im/pictures/71865830/a6c27ff6_original.jpg?im_w=720',
-        'https://a0.muscache.com/im/pictures/40681771/9afae12b_original.jpg?im_w=720',
-        'https://a0.muscache.com/im/pictures/71875065/119f0cf6_original.jpg?im_w=720',
-        'https://a0.muscache.com/im/pictures/71875109/cb9ba477_original.jpg?im_w=720'
-    ];
+    let mainImg = spot.Images?.find(img => img.main === true).src
+    // let mainImg = 'https://a0.muscache.com/im/pictures/40104227/bdec5982_original.jpg?im_w=1200'
+    // let newImgArr = [
+    //     'https://a0.muscache.com/im/pictures/71865830/a6c27ff6_original.jpg?im_w=720',
+    //     'https://a0.muscache.com/im/pictures/40681771/9afae12b_original.jpg?im_w=720',
+    //     'https://a0.muscache.com/im/pictures/71875065/119f0cf6_original.jpg?im_w=720',
+    //     'https://a0.muscache.com/im/pictures/71875109/cb9ba477_original.jpg?im_w=720'
+    // ];
     let userName = spot.User?.username
-    // if (spot?.Images)
-    // for (let i = 0; i < 4; i++) {
-    //     newImgArr.push(spot.Images[i].src)
-    // }
+    let newImgArr = []
+    if (spot?.Images)
+    for (let i = 1; i < 5; i++) {
+        newImgArr.push(spot.Images[i].src)
+    }
     let maxGuests = spot.maxGuests
     let bathrooms = spot.bathrooms
     let bedrooms = spot.bedrooms
