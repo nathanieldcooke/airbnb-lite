@@ -30,13 +30,23 @@ router.get('/:id', asyncHandler(async (req, res) => {
         const spots = await Spot.orderByBudget();
         return res.json(spots)
     }
+    
     const [newLink, data] = order.split('::')
 
-    if (newLink === 'check-in') { console.log('Check-In worked!!! ', data) }
+    if (newLink === 'check-in') { 
+        const spots = await Spot.getDateAvailable(data)
+        return res.json(spots)
+    }
 
-    else if (newLink === 'check-out') { console.log('Check-Out worked!!!', data) }
-    
-    else if (newLink === 'guests') { console.log('Guests worked!!!', data) }
+    if (newLink === 'check-out') {
+        const spots = await Spot.getDateAvailable(data)
+        return res.json(spots)
+    }
+
+    else if (newLink === 'guests') { 
+        const spots = await Spot.getHaveNumOfGuests(data);
+        return res.json(spots)
+    }
 }));
 
 module.exports = router
