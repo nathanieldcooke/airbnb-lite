@@ -22,7 +22,9 @@ function LoginForm() {
 
     return (
         <div className='form__container'>
-            <form className='form__login' onSubmit={handleSubmit}>
+            <form 
+            onClick={e => e.stopPropagation()}
+            className='form__login' onSubmit={handleSubmit}>
                 {!!errors.length && <ul>
                     {errors.map((error, idx) => (
                         <li key={idx}>{error}</li>

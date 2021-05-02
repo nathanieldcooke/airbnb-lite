@@ -24,7 +24,9 @@ function SignupFormPage() {
     };
 
     return (
-        <div className='form__container'>
+        <div 
+        onClick={e => e.stopPropagation()}
+        className='form__container'>
             <form className='form__signup' onSubmit={handleSubmit}>
                 <ul>
                     {errors.map((error, idx) => <li key={idx}>{error}</li>)}

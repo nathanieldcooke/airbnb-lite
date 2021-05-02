@@ -2,6 +2,7 @@ import {useState} from 'react';
 import './LoggedOut.css'
 import LoginFormModal from '../../../LoginFormModal/LoginFormModal';
 import SignupFormModal from '../../../SignupFormModal/SignupFormModal';
+import DemoSignupFormModal from '../../../DemoSignupFormModal/DemoSignupFormModal';
 
 
 const LoggedOut = ( { display } ) => {
@@ -20,13 +21,7 @@ const LoggedOut = ( { display } ) => {
                     <span><SignupFormModal/></span>
                 </div>
                 <div>
-                    <span>Demo Login</span>
-                </div>
-                <div>
-                    <span>Demo SignUp</span>
-                </div>
-                <div>
-                    <span>Demo Host SignUp</span>
+                    <span><DemoSignupFormModal/></span>
                 </div>
             </div>
         </>

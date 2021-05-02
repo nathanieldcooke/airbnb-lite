@@ -17,7 +17,13 @@ const ShowSpots = () => {
         else if (link === 'bring-children') { dispatch(spotsActions.getSpotsThunk('bring-children')) }
         else if (link === 'bring-infants') { dispatch(spotsActions.getSpotsThunk('bring-infants')) }
         else if (link === 'budget') { dispatch(spotsActions.getSpotsThunk('budget')) }
-    }, [dispatch])
+        const [newLink, data] = link.split('::')
+        if (newLink === 'check-in') { dispatch(spotsActions.getSpotsThunk(`${newLink}::${data}`)) }
+        else if (newLink === 'check-out') { dispatch(spotsActions.getSpotsThunk(`${newLink}::${data}`)) }
+        else if (newLink === 'guests') { dispatch(spotsActions.getSpotsThunk(`${newLink}::${data}`)) }
+
+        console.log(newLink)
+    }, [dispatch, link])
 
 
 
