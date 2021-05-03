@@ -4,8 +4,11 @@ import SearchBar from './SearchBar/SearchBar';
 import './NavBar.css'
 import SearchBtn from './SearchBtn/SearchBtn';
 import { useHistory } from 'react-router';
+import { useSelector } from 'react-redux';
 
 function NavBar (){
+
+    let user = useSelector(state => state.session.user)
 
     const [windowScroll, setWindowScroll] = useState(false);
     const [showBar, setShowBar] = useState('');
@@ -43,7 +46,7 @@ function NavBar (){
                 <SearchBar showBar={showBar} />
             </div>
             <div className='profile-button-div'>
-                <span className='become-a-host-span'>Become a host</span>
+                {user && <span className='become-a-host-span'>Welcome Back: {`${user.username}`}</span>}
                 <ProfileButton />
             </div>
         </div>

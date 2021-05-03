@@ -22,8 +22,6 @@ const ShowSpots = () => {
         if (newLink === 'check-in') { dispatch(spotsActions.getSpotsThunk(`${newLink}::${data}`)) }
         else if (newLink === 'check-out') { dispatch(spotsActions.getSpotsThunk(`${newLink}::${data}`)) }
         else if (newLink === 'guests') { dispatch(spotsActions.getSpotsThunk(`${newLink}::${data}`)) }
-
-        console.log(newLink)
     }, [dispatch, link])
 
 

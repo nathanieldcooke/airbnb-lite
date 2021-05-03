@@ -22,3 +22,16 @@
 .demo-form__signup > ul {
     color: red;
 }
+
+.demo-form__signup button {
+    font-size: 2em;
+    padding: .25em;
+    border-radius: 1em;
+}
+
+.demo-form__signup button:hover {
+    color: white;
+    background-color: black;
+    cursor: pointer;
+    transition: .5s;
+}

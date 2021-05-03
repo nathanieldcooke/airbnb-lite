@@ -1,10 +1,14 @@
+import { useReducer } from 'react'
 import { useSelector } from 'react-redux'
+import { Link } from 'react-scroll'
 import BookingFormModal from '../../BookingFormModal/BookingFormModal'
+import DisplayImagesModal from '../../DisplayImagesModal/DisplayImagesModal'
 import './DisplaySpot.css'
 
 const DisplaySpot = () => {
 
     const spot = useSelector(state => state.spot)
+    const user = useSelector(state => state.session.user)
 
     let title = spot.title
     let rating = spot.rating
@@ -63,11 +67,24 @@ const DisplaySpot = () => {
                         <div className='display-right-info'><img src={profileImg} alt='house'></img></div>
                     </div>
                     <div className='display-buttons'>
-                        <div className='book-button'><button><BookingFormModal text='Book Now'/></button></div>
-                        <div className='more-img-button'><button>More Images</button></div>
+                        {
+                            user ?
+                            <div className='book-button'><span><BookingFormModal text='Book Now'/></span></div> :
+                            <div className='book-button-not-logged-in' ><span><button className='not-logged-in' disabled={true} >Book Now</button></span></div>
+
+                        }
+                        <div className='more-img-button'><button className='is-logged-in' ><DisplayImagesModal spot={spot}/> </button></div>
                     </div>
                 </div>
+                <Link
+                    className='link'
+                    to='reviews-below'
+                    smooth={true}
+                    duration={1000}
+
+                >
                 <div className='display-review-button'><button>See Reviews Below</button></div>
+                </Link>
             </div>
         </div>
     )

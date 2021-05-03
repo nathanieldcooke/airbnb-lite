@@ -6,7 +6,7 @@ const HomePageBottom = () => {
     return (
         <div className='home-page-bottom' id='home-page-bottom'>
             <div className='sub-home-page-bottom'>
-                <NearestToYou />
+                {/* <NearestToYou /> */}
                 <TopBringAll />
             </div>
         </div>

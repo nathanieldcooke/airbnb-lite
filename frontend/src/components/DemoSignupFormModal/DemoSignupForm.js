@@ -4,8 +4,6 @@ import { csrfFetch } from "../../store/csrf";
 import * as sessionActions from "../../store/session";
 import { useSelector } from 'react-redux'
 import './DemoSignupForm.css';
-// const faker = require('faker');
-// let email = `${faker.internet.userName()}@random.com`; 
 function DemoSignupFormPage() {
 
     function getRandNumBetween(min, max) {
@@ -25,19 +23,13 @@ function DemoSignupFormPage() {
 
     const [errors, setErrors] = useState([]);
 
-    // if (sessionUser) return <Redirect to="/" />;
-    // const user = useSelector(state => state.session.user)
-
     const handleSubmit = async () => {
-        // if (e) e.preventDefault();
         setErrors([]);
         await dispatch(sessionActions.demoSignup({ email, username, password, confirmPassword }))
             .catch(async (res) => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);
             });
-        /// perform seeding operation
-        // await csrfFetch(`api/seed-demo-user/${user.id}`)
     };
 
     function sleep(ms) {
@@ -50,15 +42,12 @@ function DemoSignupFormPage() {
             setEmail(email + emailArr[0])
             setEmailArr(emailArr.slice(1, emailArr.length))
         } else if (usernameArr.length) {
-            console.log(2)
             setUsername(username + usernameArr[0])
             setUsernameArr(usernameArr.slice(1, usernameArr.length))
         } else if (passwordArr.length) {
-            console.log(3)
             setPassword(password + passwordArr[0])
             setPasswordArr(passwordArr.slice(1, passwordArr.length))
         } else if (confirmPasswordArr.length) {
-            console.log(4)
             setConfirmPassword(confirmPassword + confirmPasswordArr[0])
             setConfirmPasswordArr(confirmPasswordArr.slice(1, confirmPasswordArr.length))
         } else {

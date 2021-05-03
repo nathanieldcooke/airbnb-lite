@@ -14,14 +14,14 @@ const LoggedOut = ( { display } ) => {
 
             </div>
             <div className={`profile-btn-dropdown ${display} `}>
-                <div onClick={() => {setDisplayLogIn(true)}}>
-                    <span><LoginFormModal/></span>
+                <div className='logged-in-div' onClick={() => {setDisplayLogIn(true)}}>
+                    <span className='logged-in-span' ><LoginFormModal/></span>
                 </div>
-                <div>
-                    <span><SignupFormModal/></span>
+                <div className='logged-in-div'>
+                    <span className='logged-in-span' ><SignupFormModal/></span>
                 </div>
-                <div>
-                    <span><DemoSignupFormModal/></span>
+                <div className='logged-in-div'>
+                    <span className='logged-in-span' ><DemoSignupFormModal/></span>
                 </div>
             </div>
         </>

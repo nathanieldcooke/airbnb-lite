@@ -180,6 +180,13 @@
     /* display: flex; */
 }
 
+.display-buttons button.is-logged-in:hover {
+    background-color: black;
+    color: white;
+    transition: .5s;
+    cursor: pointer;
+}
+
 .display-buttons > div {
     padding-left: .4em;
 }
@@ -202,5 +209,23 @@
     justify-content: center; */
     /* width: 100%; */
     height: 2em;
+    animation: colorChange 1s linear 0s infinite alternate;
+    border-radius: 1em;
+    background-color: rgb(135, 223, 255);
+    border: none;
+    cursor: pointer;
+}
+
+.span-booking-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+.not-logg-in {
 
 }

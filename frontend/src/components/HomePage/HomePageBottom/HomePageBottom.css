@@ -8,6 +8,9 @@
 }
 
 .sub-home-page-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 5%;
     width: 90%;
     height: 90%;

@@ -11,7 +11,7 @@ function FormField ( { DropDown, text1, text2 } ) {
                 onClick={((e) => { setDisplay('') })}
                 onMouseLeave={((e) => { setDisplay('hidden') })}
             >
-                <span>{text1}</span>
+                <span className='span-main-text-ff'>{text1}</span>
                 <span className='span-grey-text'>{text2}</span>
                 <DropDown display={display}/>
             </div>

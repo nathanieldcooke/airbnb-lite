@@ -56,17 +56,17 @@ const HistoryForm = ({ setShowModal }) => {
                 }
                 onClick={() => { setPage('reviews') }}
                 >Reviews</button>
-                <button 
+                {/* <button 
                     className={`btn-spots 
                     ${page === 'spots' ? 'solid-green' : ''}`
                 }
                 onClick={() => { setPage('spots') }}
-                >Spots</button>
+                >Spots</button> */}
             </div>
             <div className='sub-history'>
                 {page === 'bookings' && <Booking bookings={bookings} />}
                 {page === 'reviews' && <Reviews stayedAtHistoryObj={stayedAtHistoryObj} spotsStayedAt={spotsStayedAt} reviewsObj={reviewsObj}/>}
-                {page === 'spots' && <Spots/>}
+                {/* {page === 'spots' && <Spots/>} */}
             </div>
         </div>
     )

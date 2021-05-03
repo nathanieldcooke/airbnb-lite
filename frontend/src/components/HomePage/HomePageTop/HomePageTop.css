@@ -33,6 +33,10 @@
     animation: colorChange 1s linear 0s infinite alternate;
 }
 
+.fa-chevron-circle-down:hover {
+    cursor: pointer;
+}
+
 .link {
     z-index: 0;
     position: absolute;

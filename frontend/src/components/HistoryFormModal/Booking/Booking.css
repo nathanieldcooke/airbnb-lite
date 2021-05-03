@@ -35,6 +35,18 @@
     font-size: 2em;
 }
 
+.hist-book-update-btn button {
+    border-radius: .25em;
+    height: 1.25em;
+    font-size: 2em;
+}
+
+.hist-book-update-btn button:hover, .hist-book-right > button:hover {
+    color: white;
+    background-color: black;
+    transition: .5s;
+} 
+
 .hist-book-left > .title {
   white-space: nowrap;
   overflow: hidden;

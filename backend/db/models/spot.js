@@ -163,7 +163,6 @@ module.exports = (sequelize, DataTypes) => {
 
   Spot.getDateAvailable = async function (date) {
     date = new Date(date)
-    console.log('This Is Date: ', date)
 
     let spots = await Spot.getAllSpots()
 

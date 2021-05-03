@@ -7,7 +7,7 @@ function LoginFormModal() {
 
     return (
         <>
-            <span onClick={() => setShowModal(true)}>Log In</span>
+            <span className='logged-in-span' onClick={() => setShowModal(true)}>Log In</span>
             {showModal && (
                 <Modal onClose={(e) => {
                     e.stopPropagation()

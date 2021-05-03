@@ -4,6 +4,17 @@
     border-right:  1px solid rgb(116, 116, 116);
     width: 100%;
     padding-left: 1.5em;
+    color: gray;
+    border-radius: 1.5em;
+    padding-top: .5em;
+    padding-bottom: .5em;
+}
+
+.form-field-div:hover {
+    background-color: rgb(119, 119, 119);
+    color: white;
+    transition: .5s;
+    cursor: pointer;
 }
 
 .form-field-last-child {
@@ -11,5 +22,9 @@
 }
 
 .span-grey-text {
-    color: gray
+    color: inherit
+}
+
+.span-main-text-ff {
+    color: black
 }

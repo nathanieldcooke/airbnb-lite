@@ -24,3 +24,8 @@
     width: 100%;
     border-radius: 10px;
 }
+
+.show-case-box img:hover {
+    border: 5px solid black;
+    cursor: pointer;
+}
