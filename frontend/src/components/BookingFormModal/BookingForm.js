@@ -12,6 +12,7 @@ const BookingForm = ( { updateData, setShowModal } ) => {
 
     let spot = useSelector(state => state.spot)
     const user = useSelector(state => state.session.user)
+    const bookings = useSelector(state => state.bookings)
 
     let checkInData = null; 
     let checkOutData = null; 
@@ -114,6 +115,7 @@ const BookingForm = ( { updateData, setShowModal } ) => {
         } else {
             dispatch(bookingActions.makeBookingThunk(bookingData))
         }
+        // await dispatch(spotsActions.getSpotsThunk('top-rated'))
         // await csrfFetch('/api/bookings/', {
         //     method: 'POST',
         //     body: JSON.stringify(bookingData)
@@ -131,6 +133,7 @@ const BookingForm = ( { updateData, setShowModal } ) => {
     const [guests, setGuests] = useState(updateData ? numOfGuestsData : 1)
     const [validationErrors, setValidationErrors] = useState([])
 
+    if (!spot.Bookings) spot.Bookings = bookings
     const dateTaken = (dateIn, dateOut) => {
         let dI = dateIn
         let dO = dateOut
