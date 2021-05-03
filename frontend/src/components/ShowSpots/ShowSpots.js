@@ -24,28 +24,6 @@ const ShowSpots = () => {
         else if (newLink === 'guests') { dispatch(spotsActions.getSpotsThunk(`${newLink}::${data}`)) }
     }, [dispatch, link])
 
-
-
-    // let spotsArr = null
-    // if (Object.keys(spots)[0]) {
-        // let spotsArr = []
-        // console.log("This is Spots: ", spots)
-        // for (let spotId in spots) {
-        //     // console.log(spots[spotId])
-        //     // let newObj = {}
-        //     // newObj[spotId] = spots[spotId]
-        //     spotsArr.push(spots[spotId])
-        // }
-    // } else {
-    //     spotsArr = []
-    // }
-
-    // console.log("My Console Log of Object: ", Object.keys(spots))
-    // console.log(spots)
-    // console.log(spotsArr)
-
-    
-
     return (
         <>
             <div className='random-test'>

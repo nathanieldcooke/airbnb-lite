@@ -131,7 +131,18 @@ const BookingForm = ( { updateData, setShowModal } ) => {
     const [guests, setGuests] = useState(updateData ? numOfGuestsData : 1)
     const [validationErrors, setValidationErrors] = useState([])
 
+    const dateTaken = (dateIn, dateOut) => {
+        let dI = dateIn
+        let dO = dateOut
+        return spot.Bookings.some(booking => {
+            if (new Date(booking.checkIn).getTime() > dI && new Date(booking.checkOut).getTime() < dO) {
+                return true;
+            } else {
+                return false;
+            }
+        })
 
+    }
 
     useEffect(() => {
         let daysArr = getDaysArray(dateIn, dateOut)
@@ -145,11 +156,23 @@ const BookingForm = ( { updateData, setShowModal } ) => {
         if (spot.infantsAllowed === false && infants === true) errors.push('Infants are not allowed')
         if (spot.maxGuests < guests) errors.push(`A max of ${spot.maxGuests} guests ar Allowed`)
         if (guests <= 0) errors.push(`There must be at least 1 guest`)
-        if (selectedDates.length < spot.minimumStay + 1) errors.push(`The minimum stay here is ${spot.minimumStay} day`)
-
+        if (selectedDates.length < spot.minimumStay) errors.push(`The minimum stay here is ${spot.minimumStay} day`)
+        if (dateTaken(dateIn, dateOut)) errors.push('Your dates cannot surround taken appointment')
         setValidationErrors(errors)
 
-    }, [children, infants, guests, selectedDates])
+    }, [children, infants, guests, selectedDates, dateIn, dateOut])
+
+    const tileDisabled = ({ activeStartDate, date, view }) => {
+        let d = new Date(date).getTime()
+        return spot.Bookings.some(booking => {
+            if (new Date(booking.checkIn).getTime() < d && new Date(booking.checkOut).getTime() > d) {
+                return true 
+            } else {
+                return false
+            }
+        })
+
+    }
 
     if (page === 1) {
         return (
@@ -162,7 +185,7 @@ const BookingForm = ( { updateData, setShowModal } ) => {
                     value={dateIn}
                     className='react-calender'
                     tileClassName={tileClassName}
-                    // tileDisabled={tileDisabled}
+                    tileDisabled={tileDisabled}
                 />
                 <div className='book-buttons'>
                     <button disabled={true} className='back-step'>back</button>
@@ -187,7 +210,7 @@ const BookingForm = ( { updateData, setShowModal } ) => {
                     value={dateOut}
                     className='react-calender'
                     tileClassName={tileClassName}
-                    // tileDisabled={tileDisabled}
+                    tileDisabled={tileDisabled}
                 />
                 <div className='book-buttons'>
                     <button 
@@ -323,113 +346,3 @@ const BookingForm = ( { updateData, setShowModal } ) => {
 };
 
 export default BookingForm;
-
-
-
-
-
-
-    // const monthToNum = {
-    //     Jan: 1,
-    //     Feb: 2, 
-    //     Mar: 3, 
-    //     Apr: 4,
-    //     May: 5,
-    //     Jun: 6,
-    //     Jul: 7,
-    //     Aug: 8,
-    //     Sep: 9,
-    //     Oct: 10,
-    //     Nov: 11,
-    //     Dec: 12
-    // }
-
-    // const spot = useSelector(state => state.spot)
-
-    // var getDaysArray = function (start, end) {
-    //     for (var arr = [], dt = new Date(start); dt <= end; dt.setDate(dt.getDate() + 1)) {
-    //         arr.push(new Date(dt));
-    //     }
-    //     return arr;
-    // };
-
-    // const allBookedDayArray = (start, end) => {
-    //     console.log(start)
-    //     console.log(end)
-    //     console.log('-[[[[[[[[[[[[[[[[')
-    //     var daylist = getDaysArray(new Date(start), new Date(end));
-    //     daylist.map((v) => v.toISOString().slice(0, 10)).join("")
-    //     return daylist
-
-    // }
-
-    // const convertSQLDate = (date) => {
-    //     date = date.toString().split('T')[0].split('-').splice(1, 3).map(numS => Number(numS))
-    //     return date
-    // }
-
-    // const convertCalenderDate = (date) => {
-    //     // console.log(date.toString().split(' ').splice(1,2))
-    //     date = date.toString().split(' ').splice(1, 2)
-    //     date[0] = monthToNum[date[0]]
-    //     date[1] = Number(date[1])
-    //     // console.log("val" ,date.join(' '))
-    //     return date.join(' ')
-    // }
-    // const spotBookings = spot.Bookings.map(booking => {
-    //     return allBookedDayArray(...[convertSQLDate(booking.checkIn), convertSQLDate(booking.checkOut)]) 
-    // })
-    // .map(bookingArr => bookingArr
-    // .map(booking => convertCalenderDate(booking)))
-    // .reduce((acc, subArr) => {
-    //     acc.push(...subArr)
-    //     return acc
-    // }, [])
-    // // .map(booking => convertCalenderDate(booking))
-
-
-
-    // console.log(spotBookings)
-    // console.log(spot)
-    // const [dateIn, setDateIn] = useState(new Date());
-    // const [dateOut, setDateOut] = useState(new Date());
-    // const [date, setDate] = useState(new Date())
-    // const [selectedSpots, setSelectedSpots] = useState([])
-    // // const [myspots, setMySpots] = useState([])
-
-    // const [page, setPage] = useState(1);
-    // const setDateCheckIn = date => {
-    //     // console.log(convertCalenderDate(date))
-    //     // setSelectedSpots([convertCalenderDate(date)])
-    //     setDateIn(date)
-    // }
-    // const setDateCheckOut = date => {
-    //     // console.log(date)
-    //     setDateOut(date)
-    //     let myDates = allBookedDayArray(dateIn, dateOut).map(date => convertCalenderDate(date))
-    //     console.log('HHHHHHHHHHHOOOOOOOOOOOOOOOOOOOOO')
-    //     setSelectedSpots(myDates)
-    //     console.log("Date in and Out",myDates)
-    // } 
-
-
-
-    // const tileClassName = ( dateIn ) => { 
-    //     // let sDate = date.toString().split(' ').splice(0, 3).join()
-    //     dateIn = dateIn.date.toString().split(' ').splice(1, 2)
-    //     dateIn[0] = monthToNum[dateIn[0]]
-    //     dateIn = dateIn.join(' ') 
-    //     // console.log(dateIn)
-    //     console.log(selectedSpots === dateIn)
-    //     return selectedSpots.includes(dateIn) ? 'green' : null;
-    // }
-
-    // const tileDisabled = ({ activeStartDate, date, view }) => {
-    //     // console.log(date)
-    //     // console.log('String: ', convertCalenderDate(date))
-    //     return spotBookings.includes(convertCalenderDate(date))
-    // }
-
-    // useEffect(() => {
-
-    // }, []);
