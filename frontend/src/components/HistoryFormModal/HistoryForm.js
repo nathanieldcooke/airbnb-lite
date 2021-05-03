@@ -6,7 +6,6 @@ import * as stayedAtHistoryActions from '../../store/stayedAtHistory'
 import './HistoryForm.css'
 import Booking from './Booking/Booking';
 import Reviews from './Reviews/Reviews';
-import Spots from './Spots/Spots';
 
 
 

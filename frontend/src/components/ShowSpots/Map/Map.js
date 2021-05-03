@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
-import myIcon from './pin-48.svg'
+// import myIcon from './pin-48.svg'
 import "./Map.css"
 
 const Map = ({spotsArr}) => {
 
-    const [currIcon, setCurrIcon] = useState(myIcon)
+    // const [currIcon, setCurrIcon] = useState(myIcon)
 
     // let markerz =
     //     spotsArr.map((spot, i) => {

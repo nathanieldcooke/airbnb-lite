@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { csrfFetch } from "../../store/csrf";
 import * as sessionActions from "../../store/session";
-import { useSelector } from 'react-redux'
 import './DemoSignupForm.css';
 function DemoSignupFormPage() {
 

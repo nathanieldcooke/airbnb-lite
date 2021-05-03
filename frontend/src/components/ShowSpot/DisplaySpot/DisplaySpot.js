@@ -1,4 +1,3 @@
-import { useReducer } from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-scroll'
 import BookingFormModal from '../../BookingFormModal/BookingFormModal'

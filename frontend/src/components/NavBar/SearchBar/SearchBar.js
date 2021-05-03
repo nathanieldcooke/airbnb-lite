@@ -1,7 +1,6 @@
 import CheckIn from '../../DropDowns/SearchBar/CheckIn/CheckIn'
 import CheckOut from '../../DropDowns/SearchBar/CheckOut/CheckOut'
 import Guests from '../../DropDowns/SearchBar/Guests/Guests'
-import Location from '../../DropDowns/SearchBar/Location/Location'
 import FormField from './FormField/FormField'
 import './SearchBar.css'
 

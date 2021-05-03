@@ -10,7 +10,7 @@ function CheckIn({ display }) {
     // const [link, setLink] = useState('')
     const history = useHistory()
 
-    const [dateOut, setDateCheckOut] = useState(new Date)
+    const [dateOut, setDateCheckOut] = useState(new Date())
 
     const handelSubmit = (e) => {
         e.preventDefault()

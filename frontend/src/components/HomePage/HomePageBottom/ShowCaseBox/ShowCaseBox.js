@@ -14,10 +14,6 @@ function ShowCaseBox ({id, title, src}) {
         else if (spotsCollection === '2') { setLink('bring-children') }
         else if (spotsCollection === '3') { setLink('bring-infants') }
         else if (spotsCollection === '4') { setLink('budget') }
-        // if (spotsCollection === '1') { dispatch(spotsActions.getSpotsThunk('top-rated')) }
-        // else if (spotsCollection === '2') { dispatch(spotsActions.getSpotsThunk('bring-children')) }
-        // else if (spotsCollection === '3') { dispatch(spotsActions.getSpotsThunk('bring-infants')) }
-        // else if (spotsCollection === '4') { dispatch(spotsActions.getSpotsThunk('budget')) }
         setRedirect(true)
         // history.push(`/spots/${link}`)
     }
@@ -29,7 +25,7 @@ function ShowCaseBox ({id, title, src}) {
     }
 
     return (
-        <div onClick={(e) => {handelSearchClick(e)}} className='show-case-box'>
+        <div onClick={(e) => handelSearchClick(e)} className='show-case-box'>
             <span>{title}</span>
             <div className='image'>
                 <img src={`${src}`} alt='property' id={id}/>

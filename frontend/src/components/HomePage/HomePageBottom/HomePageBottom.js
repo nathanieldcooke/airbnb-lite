@@ -1,5 +1,5 @@
 import './HomePageBottom.css'
-import NearestToYou from './NearestToYou/NearestToYou'
+// import NearestToYou from './NearestToYou/NearestToYou'
 import TopBringAll from './TopBringAll/TopBringAll'
 
 const HomePageBottom = () => {
