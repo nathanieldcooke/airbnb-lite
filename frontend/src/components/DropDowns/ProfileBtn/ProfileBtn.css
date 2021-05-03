@@ -14,6 +14,12 @@
 
 .profile-btn-dropdown > div {
     margin-bottom: 1em;
+    transition: .5s;
+}
+
+.profile-btn-dropdown > div:hover {
+    background-color: rgb(114, 114, 114);
+    color: white;
 }
 
 .profile-btn-dropdown div:last-child {

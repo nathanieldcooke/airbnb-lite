@@ -1,0 +1,24 @@
+.form__signup {
+    display: flex;
+    flex-direction: column;
+    /* height: 100%; */
+    width: 300px;
+    justify-content: space-between;
+    /* background-color: cad; */
+    /* box-sizing: border-box; */
+    padding: 20px;
+    border-radius: 1em;
+}
+
+.form__signup input {
+    width: 100%;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    box-sizing: border-box;
+    /* height: 30px; */
+    font-size: 30px;
+}
+
+.form__signup > ul {
+    color: red;
+}

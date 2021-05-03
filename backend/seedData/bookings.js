@@ -12,15 +12,15 @@ function generateUsers(numOfUsers) {
     
         let email = `${faker.internet.userName()}@random.com`;
         let username = faker.internet.userName();
-        let isHost = (i <= 10) ? true : false;
+        // let isHost = (i <= 10) ? true : false;
     
         if (noDupCheck.has(email) || noDupCheck.has(username)) {
             --i;
             continue;
         }
     
+        // isHost,
         userSeeds.push({
-            isHost,
             email,
             username,
             hashedPassword: bcrypt.hashSync('password')

@@ -1,7 +1,6 @@
 import './Spot.css'
 
 const Spot = ({spotObj}) => {
-    // console.log(spotObj)
     let country = spotObj.country;
     let city = spotObj.city;
     let state = spotObj.state; 
@@ -10,14 +9,16 @@ const Spot = ({spotObj}) => {
     let maxGuests = spotObj.maxGuests; 
     let rating = spotObj.rating; 
     let image = spotObj.Images.find(img => img.main === true).src; 
-    // console.log('Imgae: ', image)
+    let currPath = `${window.location.href}`.split('spots')
 
+    console.log(currPath)
 
     return (
-        <div className='spot' onClick={() => window.open(`http://localhost:3000/spot/${spotObj.id}`, '_blank', 'noopener noreferrer')}>
+        // https://auth-me-app.herokuapp.com/
+        <div className='spot' onClick={() => window.open(`${currPath[0]}spot/${spotObj.id}`, '_blank', 'noopener noreferrer')}>
             <div className='spot-sub'>
                 <div className='spot-img-container'>
-                    <img src={image} ></img>
+                    <img src={image} alt='house' ></img>
                 </div>
                 <div className='spot-text-container'>
                     <div className='top-box'>

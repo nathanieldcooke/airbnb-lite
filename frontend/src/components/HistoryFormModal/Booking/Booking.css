@@ -1,0 +1,42 @@
+.history-booking {
+    border: 5px solid red;
+    height: 100%;
+    width: 100%;
+    overflow: scroll;
+}
+
+.sub-history-booking {
+    display: flex;
+    height: 7em;
+    border-bottom: 2px solid black;
+}
+
+.hist-book-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 50%;
+}
+
+.hist-book-right {
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 50%;
+}
+
+.hist-book-right > button {
+    /* height: 6em; */
+    border-radius: .25em;
+    height: 1.25em;
+    font-size: 2em;
+}
+
+.hist-book-left > .title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

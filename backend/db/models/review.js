@@ -1,4 +1,6 @@
 'use strict';
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op
 module.exports = (sequelize, DataTypes) => {
   const Review = sequelize.define('Review', {
     cleanliness: {
@@ -42,5 +44,40 @@ module.exports = (sequelize, DataTypes) => {
     Review.belongsTo(models.Spot, { foreignKey: 'spotId' })
     Review.belongsTo(models.User, { foreignKey: 'userId' })
   };
+
+  Review.findAllOfUsersReviews = async function(userId) {
+    const { Spot } = require('../models')
+    const reviews = await Review.findAll({
+      where: {
+        userId: {
+          [Op.eq]: userId
+        }
+      },
+      include: [Spot]
+    });
+
+    return reviews
+  }
+
+  Review.postReview = async function(reviewData) {
+    const { Spot } = require('../models')
+    let postedReview = await Review.create(reviewData);
+    postedReview = await Review.findByPk(postedReview.id, {
+      include: Spot
+    })
+    return postedReview 
+  }
+
+  Review.deleteReview = async function(id) {
+    const review = await Review.findByPk(id)
+    await review.destroy();
+  }
+
+  Review.updateReview = async function(updateData, id) {
+    const review = await Review.findByPk(id)
+    const updatedReview = await review.update(updateData)
+    return updatedReview
+  }
+
   return Review;
 };

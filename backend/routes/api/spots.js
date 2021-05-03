@@ -14,8 +14,6 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
 router.get('/:id', asyncHandler(async (req, res) => {
     // const spots = await Spot.getAllSpots();
     const order = req.params.id;
-    console.log("From Order: ",order)
-    console.log('THis is Order: ',order)
     if (order === 'top-rated') {
         const spots = await Spot.orderByTop();
         return res.json(spots)
@@ -32,7 +30,23 @@ router.get('/:id', asyncHandler(async (req, res) => {
         const spots = await Spot.orderByBudget();
         return res.json(spots)
     }
-    console.log('Spots!!!!!!!: ', spots)
+    
+    const [newLink, data] = order.split('::')
+
+    if (newLink === 'check-in') { 
+        const spots = await Spot.getDateAvailable(data)
+        return res.json(spots)
+    }
+
+    if (newLink === 'check-out') {
+        const spots = await Spot.getDateAvailable(data)
+        return res.json(spots)
+    }
+
+    else if (newLink === 'guests') { 
+        const spots = await Spot.getHaveNumOfGuests(data);
+        return res.json(spots)
+    }
 }));
 
 module.exports = router

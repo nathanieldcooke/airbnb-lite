@@ -1,27 +1,18 @@
+// import * as sessionActions from '../../../store/session'
+import { useSelector } from 'react-redux';
 import './ProfileBtn.css'
+import LoggedIn from './LoggedIn/LoggedIn';
+import LoggedOut from './LoggedOut/LoggedOut';
 
 function ProfileBtn ( { display } ) {
-    return (
-        <>
-            <div className='spacer-div'>
+    // const dispatch = useDispatch();
+    const userSession = useSelector(state => state.session)
+    if (userSession.user?.id) {
+        return <LoggedIn display={display} />
+    } else {
+        return <LoggedOut display={display} />
+    }
 
-            </div>
-            <div className={`profile-btn-dropdown ${ display } `}>
-                <div>
-                    <span>Login</span>
-                </div>
-                <div>
-                    <span>SignUp</span>
-                </div>            
-                <div>
-                    <span>Demo User</span>
-                </div>           
-                <div>
-                    <span>Demo SignUp</span>
-                </div>
-            </div>
-        </>
-    )
 }
 
 export default ProfileBtn

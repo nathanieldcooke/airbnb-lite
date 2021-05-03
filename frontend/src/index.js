@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-
+import { ModalProvider } from "./context/Modal";
 import './index.css';
 import configureStore from './store/index';
 import { restoreCSRF, csrfFetch } from './store/csrf';
@@ -20,12 +20,13 @@ if (process.env.NODE_ENV !== 'production') { // is development
 };
 
 function Root () {
-  console.log("This IS Store: ",store)
   return (
     <Provider store={store}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <ModalProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ModalProvider>
     </Provider>
   );
 };

@@ -73,7 +73,11 @@ module.exports = (sequelize, DataTypes) => {
     price: {
       type: DataTypes.INTEGER,
       allowNull: false,
-    }
+    },
+    logAndLat: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   }, {});
   
   Spot.associate = function(models) {
@@ -88,7 +92,22 @@ module.exports = (sequelize, DataTypes) => {
     const { Review, Booking, User, Image } = require('../models')
     // id = Number(id)
     return await Spot.findByPk(id, {
-      include: [Review, Booking, User, Image]
+      // include: [Review, Booking, User, Image]
+      include: [
+        {
+          model: Review,
+          include: User
+        },
+        {
+          model: Booking
+        },
+        {
+          model: User
+        },
+        {
+          model: Image
+        }
+      ]
     })
   }
 
@@ -105,7 +124,7 @@ module.exports = (sequelize, DataTypes) => {
     // may load users/owners of spots later.
     return await Spot.findAll({
       order: [['rating', 'DESC']],
-      include: [Review, Booking, User, Image]
+      include: [Review, Booking, User, Image],
     })
   }
 
@@ -141,6 +160,36 @@ module.exports = (sequelize, DataTypes) => {
       include: [Review, Booking, User, Image]
     })
   }
+
+  Spot.getDateAvailable = async function (date) {
+    date = new Date(date)
+    console.log('This Is Date: ', date)
+
+    let spots = await Spot.getAllSpots()
+
+    spots = spots.filter(spot => {
+      // checks is some(any) bookings for this spot, are takening the desired date
+      return !spot.Bookings.some(booking => {
+        const dtime = date.getTime()
+        // this means that the booking alread takes the desired date
+        return (dtime > booking.checkIn.getTime() - 86400000 && dtime < booking.checkOut.getTime()) ? true : false
+      })
+    })
+
+    return spots
+  }
+
+  Spot.getHaveNumOfGuests = async function (num) {
+    const { Review, Booking, User, Image } = require('../models')
+    return await Spot.findAll({
+      where: {
+        maxGuests: {
+          [Op.gte]: num
+        }
+      },
+      include: [Review, Booking, User, Image]
+    })
+  } 
 
   return Spot;
 };

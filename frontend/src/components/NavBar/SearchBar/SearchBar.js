@@ -12,11 +12,11 @@ function SearchBar( { showBar } ) {
                 <span className='quote-search-bar-span' >Your Next Adventure Starts Here...</span>
             </div>
             <form className='search-bar-form'>
-                <FormField DropDown={Location} text1='Location' text2='Where are you going?' />
+                {/* <FormField DropDown={Location} text1='Location' text2='Where are you going?' /> */}
                 <FormField DropDown={CheckIn} text1='Check-In' text2='Add dates' />
                 <FormField DropDown={CheckOut} text1='Check-Out' text2='Add dates' />
                 <FormField DropDown={Guests} text1='Guests' text2='Add guests' />
-                <button className='search-form-button' type='submit'><i className="fas fa-search"></i></button>
+                <button disabled={true} className='search-form-button' type='submit'><i className="fas fa-search"></i></button>
             </form>
         </div>
 

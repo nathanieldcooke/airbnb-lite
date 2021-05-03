@@ -36,11 +36,7 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         len: [60, 60]
       },
-    },
-    isHost: {
-      type: DataTypes.BOOLEAN,
-      default: false,
-    },
+    }
   }, 
   {
     defaultScope: {

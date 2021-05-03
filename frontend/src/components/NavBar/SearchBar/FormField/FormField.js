@@ -1,8 +1,7 @@
-import { useState, useEffect } from 'react';
-import Location from '../../../DropDowns/SearchBar/Location/Location'
+import { useState } from 'react';
 import './FormField.css'
 
-function FormField ( {DropDown, text1, text2 } ) {
+function FormField ( { DropDown, text1, text2 } ) {
 
     let [display, setDisplay] = useState('hidden');
 

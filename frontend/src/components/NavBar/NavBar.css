@@ -44,3 +44,7 @@
     font-size: 1.1em;
     padding-right: 1em;
 }
+
+.nav-bottom-border {
+    border-bottom: 2px solid black;
+}
