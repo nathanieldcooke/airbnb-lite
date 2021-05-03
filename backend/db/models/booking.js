@@ -50,8 +50,35 @@ module.exports = (sequelize, DataTypes) => {
     return bookings;
   }
 
+  // include: [
+  //   {
+  //     model: Review,
+  //     include: User
+  //   },
+  //   {
+  //     model: Booking
+  //   },
+  //   {
+  //     model: User
+  //   },
+  //   {
+  //     model: Image
+  //   }
+  // ]
+
   Booking.addBooking = async function(bookingData) {
+    const { Spot, Booking } = require('../models')
+
     let newBooking = await Booking.create(bookingData);
+    newBooking = await Booking.findByPk(newBooking.id, {
+      include: [
+        {
+          model: Spot,
+          include: Booking
+        }
+      ]
+    })
+
     return newBooking;
   }
 
