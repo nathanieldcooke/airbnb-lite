@@ -7,7 +7,7 @@ function SignupFormModal() {
 
     return (
         <>
-            <span onClick={() => setShowModal(true)}>SignUp</span>
+            <span className='logged-in-span' onClick={() => setShowModal(true)}>SignUp</span>
             {showModal && (
                 <Modal onClose={(e) => {
                     e.stopPropagation()

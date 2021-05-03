@@ -19,6 +19,13 @@
     align-self: center;
 }
 
+.calender-container > button:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    transition: .5s;
+}
+
 .calender-container > .react-calender {
     margin-bottom: 1em;
 }
@@ -35,3 +42,4 @@
     height: 10em;
     position: absolute;
 }
+

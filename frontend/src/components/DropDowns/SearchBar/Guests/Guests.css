@@ -27,6 +27,13 @@
     align-self: center;
 }
 
+.guest-search-btn:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    transition: .5s;
+}
+
 .add, .val-div, .subtract {
     height: 2em;
     width: 2em;
@@ -34,6 +41,14 @@
     border-radius: 100px;
     background-color: blue;
     color: white;
+}
+
+.add:hover, .subtract:hover {
+    color: blue;
+    background-color: white;
+    border: 2px solid black;
+    transition: .5s;
+    cursor: pointer;
 }
 
 .add-val-sub-div {

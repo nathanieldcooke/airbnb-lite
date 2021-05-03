@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux'
+import BookingFormModal from '../../BookingFormModal/BookingFormModal'
 import ReviewComments from './ReviewComments/ReviewComments'
 import ReviewScale from './ReviewScale/ReviewScale'
 import './ReviewSpot.css'
@@ -16,7 +17,7 @@ const ReviewSpot = () => {
 
 
     return (
-        <div className='review-spot-container'>
+        <div className='review-spot-container' id='reviews-below'>
             <div className='review-navbar-space-holder'></div>
             <div className='sub-review-spot-container'>
                 <div className='review-spot-review-star'><span><i className="fas fa-star"></i> {spot.rating} ({spot.Reviews?.length} reviews)</span></div>
@@ -35,8 +36,8 @@ const ReviewSpot = () => {
                 <div className='review-comments'>
                     {reviews}
                 </div>
-                <div className='review-book-now-btn'>
-                    <button>Book Now</button>
+                <div >
+                    <span className='review-book-now-btn'> <BookingFormModal text={"Book Now"}/></span>
                 </div>
             </div>
         </div>

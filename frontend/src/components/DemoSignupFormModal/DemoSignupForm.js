@@ -4,8 +4,6 @@ import { csrfFetch } from "../../store/csrf";
 import * as sessionActions from "../../store/session";
 import { useSelector } from 'react-redux'
 import './DemoSignupForm.css';
-// const faker = require('faker');
-// let email = `${faker.internet.userName()}@random.com`; 
 function DemoSignupFormPage() {
 
     function getRandNumBetween(min, max) {
@@ -25,19 +23,13 @@ function DemoSignupFormPage() {
 
     const [errors, setErrors] = useState([]);
 
-    // if (sessionUser) return <Redirect to="/" />;
-    // const user = useSelector(state => state.session.user)
-
     const handleSubmit = async () => {
-        // if (e) e.preventDefault();
         setErrors([]);
         await dispatch(sessionActions.demoSignup({ email, username, password, confirmPassword }))
             .catch(async (res) => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);
             });
-        /// perform seeding operation
-        // await csrfFetch(`api/seed-demo-user/${user.id}`)
     };
 
     function sleep(ms) {

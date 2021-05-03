@@ -27,9 +27,6 @@ function ProfileButton () {
                 <i className="fas fa-bars"></i>
                 <i className="fas fa-user-circle"></i>
             </div>
-            {/* <div className='spacer-div'>
-
-            </div> */}
             <ProfileBtn display={display}/>
         </div>
     )

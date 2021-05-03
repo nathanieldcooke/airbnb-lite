@@ -13,17 +13,21 @@
     font-size: 1em;
     padding-right: 1em;
     padding-left: .5em;
-    color: rgb(60, 60, 60);
+    /* color: rgb(60, 60, 60); */
+    color: inherit;
 }
 
 .fa-user-circle {
     /* padding: 0 .25em; */
     font-size: 2em;
-    color: rgb(92, 92, 92);
+    /* color: rgb(92, 92, 92); */
+    color: inherit;
 }
 
 .profile-btn-dropdown-conntainer {
     position: relative;
+    color: rgb(60, 60, 60);
+    /* transition: .5s; */
 }
 
 /* .spacer-div {
@@ -41,3 +45,10 @@
     background-color: red;
     z-index: -10;
 } */
+
+.profile-button-icon-container:hover {
+    background-color: black;
+    color: white;
+    transition: .5s;
+    cursor: pointer;
+}

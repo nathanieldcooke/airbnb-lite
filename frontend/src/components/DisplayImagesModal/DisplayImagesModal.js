@@ -1,24 +1,24 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
-import DemoSignupForm from './DemoSignupForm';
+import DisplayImages from './DisplayImages.js';
 
-function DemoSignupFormModal() {
+function DisplayImagesModal( {spot} ) {
     const [showModal, setShowModal] = useState(false);
 
     return (
         <>
-            <span className='logged-in-span' onClick={() => setShowModal(true)}>Demo SignUp</span>
+            <span className='logged-in-span' onClick={() => setShowModal(true)}>More Images</span>
             {showModal && (
                 <Modal onClose={(e) => {
                     e.stopPropagation()
                     setShowModal(false)
                 }
                 }>
-                    <DemoSignupForm />
+                    <DisplayImages spot={spot} />
                 </Modal>
             )}
         </>
     );
 }
 
-export default DemoSignupFormModal;
+export default DisplayImagesModal;

@@ -1,0 +1,10 @@
+.all-images-display-modal {
+    height: 30em;
+    width: 30em;
+    overflow: scroll;
+}
+
+.all-images-display-modal img {
+    width: 15em;
+    height: 15em;
+}

@@ -1,5 +1,7 @@
 import { useSelector } from 'react-redux'
+import { Link } from 'react-scroll'
 import BookingFormModal from '../../BookingFormModal/BookingFormModal'
+import DisplayImagesModal from '../../DisplayImagesModal/DisplayImagesModal'
 import './DisplaySpot.css'
 
 const DisplaySpot = () => {
@@ -63,11 +65,19 @@ const DisplaySpot = () => {
                         <div className='display-right-info'><img src={profileImg} alt='house'></img></div>
                     </div>
                     <div className='display-buttons'>
-                        <div className='book-button'><button><BookingFormModal text='Book Now'/></button></div>
-                        <div className='more-img-button'><button>More Images</button></div>
+                        <div className='book-button'><span><BookingFormModal text='Book Now'/></span></div>
+                        <div className='more-img-button'><button><DisplayImagesModal spot={spot}/> </button></div>
                     </div>
                 </div>
+                <Link
+                    className='link'
+                    to='reviews-below'
+                    smooth={true}
+                    duration={1000}
+
+                >
                 <div className='display-review-button'><button>See Reviews Below</button></div>
+                </Link>
             </div>
         </div>
     )

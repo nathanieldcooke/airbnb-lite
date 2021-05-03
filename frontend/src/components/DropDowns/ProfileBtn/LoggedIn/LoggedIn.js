@@ -7,8 +7,6 @@ import HistoryFormModal from '../../../HistoryFormModal/HistoryFormModal';
 const LoggedIn = ( { display } ) => {
     const dispatch = useDispatch();
 
-    
-
     return (
         <>
             <div className='spacer-div'>

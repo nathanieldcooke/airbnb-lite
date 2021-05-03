@@ -31,3 +31,16 @@
 .form__login > ul {
     color: red;
 }
+
+.form__container button {
+    font-size: 2em;
+    padding: .25em;
+    border-radius: 1em;
+}
+
+.form__container button:hover {
+    color: white;
+    background-color: black;
+    cursor: pointer;
+    transition: .5s;
+}

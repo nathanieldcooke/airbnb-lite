@@ -7,7 +7,7 @@ function BookingFormModal( { updateData, text } ) {
 
     return (
         <>
-            <span onClick={() => setShowModal(true)}>{text}</span>
+            <button className='span-booking-modal' onClick={() => setShowModal(true)}>{text}</button>
             {showModal && (
                 <Modal onClose={(e) => {
                     e.stopPropagation()

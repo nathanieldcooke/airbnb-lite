@@ -7,6 +7,12 @@
     /* border-top: 2px solid black; */
 }
 
+.spot:hover {
+    background-color: grey;
+    transition: .5s;
+    cursor: pointer;
+}
+
 .spot-sub {
     border-top: 1px solid rgb(126, 126, 126);
     display: flex;
