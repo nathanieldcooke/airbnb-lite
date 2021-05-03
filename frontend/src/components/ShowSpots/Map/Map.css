@@ -4,3 +4,16 @@
     width: 50%;
     box-sizing: border-box;
 }
+
+.marker {
+    color: black;
+    background-color: black;
+    padding: 2em;
+}
+
+.pop-up {
+    background-color: white;
+    width: 5em;
+    height: 5em;
+    border: 2px solid black;
+}

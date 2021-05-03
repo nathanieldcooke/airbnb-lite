@@ -28,4 +28,5 @@ transition: .5s;
 .footer i:hover {
     color: black;
     background-color: white;
+    cursor: pointer;
 }

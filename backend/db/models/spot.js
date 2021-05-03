@@ -73,7 +73,11 @@ module.exports = (sequelize, DataTypes) => {
     price: {
       type: DataTypes.INTEGER,
       allowNull: false,
-    }
+    },
+    logAndLat: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   }, {});
   
   Spot.associate = function(models) {

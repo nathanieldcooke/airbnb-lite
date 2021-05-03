@@ -52,7 +52,7 @@ const ShowSpots = () => {
         <>
             <div className='random-test'>
                 <Spots spotsArr={spotsArr}/>
-                <Map />
+                <Map spotsArr={spotsArr}/>
             </div>
             <Footer/>
         </>
