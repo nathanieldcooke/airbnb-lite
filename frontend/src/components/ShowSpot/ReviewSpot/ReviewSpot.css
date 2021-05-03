@@ -62,7 +62,7 @@
     font-size: 1.25em;
 }
 
-.review-book-now-btn > button:hover {
+.review-book-now-btn > button.is-logged-in:hover {
     background-color: black;
     color: white;
     transition: .5s;

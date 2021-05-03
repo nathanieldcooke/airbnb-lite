@@ -43,7 +43,6 @@ module.exports = {
 
     function getAddress() {
       let logAndLat = coordinateBook.pop();
-      console.log('Log and Lat', logAndLat)
       let [streetAddress, city, state, zipcode] = addressBook.pop().split(',')
       return {state, city, streetAddress, zipcode, logAndLat}
     }

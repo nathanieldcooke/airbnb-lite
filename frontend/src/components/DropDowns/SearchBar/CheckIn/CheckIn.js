@@ -14,7 +14,6 @@ function CheckIn({ display }) {
 
     const handelSubmit = (e) => {
         e.preventDefault()
-        console.log(dateOut)
         // setLink('check-in')
 
         history.push(`/spots/check-in::${dateOut}`)

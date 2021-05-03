@@ -10,9 +10,6 @@ const Spot = ({spotObj}) => {
     let rating = spotObj.rating; 
     let image = spotObj.Images.find(img => img.main === true).src; 
     let currPath = `${window.location.href}`.split('spots')
-
-    console.log(currPath)
-
     return (
         // https://auth-me-app.herokuapp.com/
         <div className='spot' onClick={() => window.open(`${currPath[0]}spot/${spotObj.id}`, '_blank', 'noopener noreferrer')}>

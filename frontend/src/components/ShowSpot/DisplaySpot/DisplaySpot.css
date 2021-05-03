@@ -180,7 +180,7 @@
     /* display: flex; */
 }
 
-.display-buttons button:hover {
+.display-buttons button.is-logged-in:hover {
     background-color: black;
     color: white;
     transition: .5s;
@@ -224,4 +224,8 @@
     height: 100%;
     width: 100%;
     text-align: center;
+}
+
+.not-logg-in {
+
 }

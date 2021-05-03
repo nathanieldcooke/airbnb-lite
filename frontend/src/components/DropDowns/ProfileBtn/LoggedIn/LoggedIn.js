@@ -13,11 +13,11 @@ const LoggedIn = ( { display } ) => {
 
             </div>
             <div className={`profile-btn-dropdown ${display} `}>
-                <div onClick={() => { dispatch(sessionActions.logout()) }}>
-                    <span>Logout</span>
+                <div className='logged-in-div' onClick={() => { dispatch(sessionActions.logout()) }}>
+                    <span className='logged-in-span' >Logout</span>
                 </div>
-                <div>
-                    <HistoryFormModal />
+                <div className='logged-in-div'>
+                    <span className='logged-in-span' ><HistoryFormModal /></span>
                 </div>
             </div>
         </>

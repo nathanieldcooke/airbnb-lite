@@ -42,15 +42,12 @@ function DemoSignupFormPage() {
             setEmail(email + emailArr[0])
             setEmailArr(emailArr.slice(1, emailArr.length))
         } else if (usernameArr.length) {
-            console.log(2)
             setUsername(username + usernameArr[0])
             setUsernameArr(usernameArr.slice(1, usernameArr.length))
         } else if (passwordArr.length) {
-            console.log(3)
             setPassword(password + passwordArr[0])
             setPasswordArr(passwordArr.slice(1, passwordArr.length))
         } else if (confirmPasswordArr.length) {
-            console.log(4)
             setConfirmPassword(confirmPassword + confirmPasswordArr[0])
             setConfirmPasswordArr(confirmPasswordArr.slice(1, confirmPasswordArr.length))
         } else {

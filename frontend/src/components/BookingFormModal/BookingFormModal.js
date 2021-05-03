@@ -7,7 +7,7 @@ function BookingFormModal( { updateData, text } ) {
 
     return (
         <>
-            <button className='span-booking-modal' onClick={() => setShowModal(true)}>{text}</button>
+            <button className='span-booking-modal is-logged-in' onClick={() => setShowModal(true)}>{text}</button>
             {showModal && (
                 <Modal onClose={(e) => {
                     e.stopPropagation()
