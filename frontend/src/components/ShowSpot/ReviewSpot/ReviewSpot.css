@@ -51,6 +51,7 @@
     /* align-items: flex-start; */
     margin-top: 2em;
     /* border: 2px solid black; */
+    overflow: scroll;
     width: 70.5em;
     height: 25em;
 }
