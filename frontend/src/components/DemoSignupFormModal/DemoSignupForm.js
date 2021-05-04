@@ -3,6 +3,12 @@ import { useDispatch } from "react-redux";
 import * as sessionActions from "../../store/session";
 import './DemoSignupForm.css';
 function DemoSignupFormPage() {
+    // let i = 1
+    // console.log(`hello${++i}`)
+
+    let initEmail = `demo-user${getRandNumBetween(1, 10)}${getRandNumBetween(1, 10)}${getRandNumBetween(1, 10)}${getRandNumBetween(1, 10)}${getRandNumBetween(1, 10)}@random.com`
+    let initUsername = `demo-user${getRandNumBetween(1, 10)}${getRandNumBetween(1, 10)}${getRandNumBetween(1, 10)}${getRandNumBetween(1, 10)}`
+    let initPasswodAndConfirm = "1234abcd"
 
     function getRandNumBetween(min, max) {
         return Math.floor(Math.random() * (max - min) + min);
@@ -14,16 +20,16 @@ function DemoSignupFormPage() {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
 
-    const [emailArr, setEmailArr] = useState(`demo-user${getRandNumBetween(1, 10)}${getRandNumBetween(1, 10)}${getRandNumBetween(1, 10)}${getRandNumBetween(1, 10)}${getRandNumBetween(1, 10)}@random.com`.split(''));
-    const [usernameArr, setUsernameArr] = useState(`demo-user${getRandNumBetween(1, 10)}${getRandNumBetween(1, 10)}`.split(''));
-    const [passwordArr, setPasswordArr] = useState("1234abcd".split(''));
-    const [confirmPasswordArr, setConfirmPasswordArr] = useState("1234abcd".split(''));
+    const [emailArr, setEmailArr] = useState(initEmail.split(''));
+    const [usernameArr, setUsernameArr] = useState(initUsername.split(''));
+    const [passwordArr, setPasswordArr] = useState(initPasswodAndConfirm.split(''));
+    const [confirmPasswordArr, setConfirmPasswordArr] = useState(initPasswodAndConfirm.split(''));
 
     const [errors, setErrors] = useState([]);
 
     const handleSubmit = async () => {
         setErrors([]);
-        await dispatch(sessionActions.demoSignup({ email, username, password, confirmPassword }))
+        await dispatch(sessionActions.demoSignup({ email: initEmail, username: initUsername, password: initPasswodAndConfirm, confirmPassword: initPasswodAndConfirm }))
             .catch(async (res) => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);
@@ -35,7 +41,7 @@ function DemoSignupFormPage() {
     }
 
     const updateFunc = async () => {
-        await sleep(100)
+        await sleep(50)
         if (emailArr.length) {
             setEmail(email + emailArr[0])
             setEmailArr(emailArr.slice(1, emailArr.length))

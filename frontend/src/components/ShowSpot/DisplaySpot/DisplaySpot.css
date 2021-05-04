@@ -3,6 +3,7 @@
     justify-content: center;
     height: 100vh;
     width: 100vw;
+    /* background-color: blue; */
     /* background-color: peachpuff; */
 }
 
@@ -58,8 +59,8 @@
     display: flex;
     margin-bottom: 1.5em;
     /* border: 1px solid black; */
-    height: 35em;
-    width: 70em;
+    height: 50%;
+    width: 100%;
 }
 
 .display-images-box > div {
@@ -70,7 +71,7 @@
 .display-main-img {
     border-top-left-radius: 1em;
     border-bottom-left-radius: 1em;
-    background-color: red;
+    /* background-color: red; */
     height: 99%;
     width: 100%;
     align-self: center;
