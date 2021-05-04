@@ -54,6 +54,7 @@
     overflow: scroll;
     width: 70.5em;
     height: 25em;
+    margin-bottom: .5em;
 }
 
 .review-book-now-btn {
