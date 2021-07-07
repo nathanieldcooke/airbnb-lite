@@ -4,7 +4,7 @@
     border-right:  1px solid rgb(116, 116, 116);
     width: 100%;
     padding-left: 1.5em;
-    color: gray;
+    color: rgb(94, 94, 94);
     border-radius: 1.5em;
     padding-top: .5em;
     padding-bottom: .5em;
@@ -26,5 +26,5 @@
 }
 
 .span-main-text-ff {
-    color: black
+    color: inherit
 }
